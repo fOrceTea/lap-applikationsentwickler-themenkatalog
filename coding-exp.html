@@ -5,114 +5,417 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="content">
-  <title>LAP-AppDev-Main</title>
-  <link rel="shortcut icon" href="topicPic/topic-favicon.png" type="image/x-icon">
-
+  <title>LAP Appdeveloper</title>
   <style>
-    /* Allgemeine Einstellungen */
-    body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    html {
+      color-scheme: light;
+      scroll-behavior: smooth;
+      --font-text-code: 'Courier New', Courier, monospace;
+      --font-text-learn: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    header {
+      border-radius: 2px;
+      padding: 16px 16px 16px 16px;
+    }
+
+    #navhead ul li {
+      display: inline;
+      list-style: none;
+      font-weight: bold;
+      padding: 8px 8px 8px 8px;
+      margin-right: 24px;
+      border-radius: 6px;
+    }
+
+    #currenttimeform {
+      position: fixed;
+      top: 2px;
+      right: 20px;
+    }
+
+    #currenttime {
+      border: none;
+      border-radius: 4px;
+      font-family: var(--font-text-code);
+      width: 60px;
+      height: 30px;
+      font-size: large;
+      font-weight: bold;
+      display: inline;
+      margin: 2px 2px 2px 2px;
+      text-align: center;
+    }
+
+    .maincontain {
+      margin: 0px 0px 24px 0px;
+    }
+
+    .textcard-toggle-button a {
+      padding: 16px 16px 16px 16px;
+    }
+
+    .stylesheme {
+      font-weight: bold;
+      font-size: large;
+      box-sizing: border-box;
+      position: fixed;
+      text-align: center;
+      padding-top: 4px;
+      top: 2px;
+      right: 12px;
+      height: 30px;
+      width: 50px;
+      margin: 2px 2px 2px 2px;
+      padding-top: 3px;
+      border-radius: 2px;
+    }
+
+    .endword {
+      margin: 16px 0px 16px 8px;
+      padding: 8px 16px 8px 16px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    img {
+      width: 100%;
+      max-width: 999px;
+      height: 100%;
+      max-height: 690px;
+      border-radius: 8px;
+    }
+
+    #zubeantwortendefrage {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    #antwortderfrage {
+      font-size: 1.5rem;
+    }
+
+    .example {
+      box-sizing: border-box;
+      border-radius: 2px;
+      width: 100%;
+      font-family: var(--font-text-code);
+      margin: 8px 0px 8px 0px;
+      padding: 8px 8px 8px 8px;
+      font-size: 1rem;
+    }
+
+    .execute {
+      box-sizing: border-box;
+      border-radius: 2px;
+      width: 100%;
+      font-family: var(--font-text-code);
+      margin: 8px 0px 8px 0px;
+      padding: 8px 8px 8px 8px;
+      font-size: medium;
+    }
+
+    .exercise {
+      box-sizing: border-box;
+      border-radius: 2px;
+      width: 100%;
+      font-family: var(--font-text-code);
+      margin: 8px 0px 8px 0px;
+      padding: 8px 8px 8px 8px;
+      font-size: medium;
+    }
+
+    hr {
+      border-color: var(--hr-border);
+    }
+
+    .topbutton,
+    .downbutton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      box-sizing: border-box;
+      border-radius: 32px;
+      padding: 10px 0px 10px 0px;
+      background-color: rgb(90, 90, 90, 0.6);
+    }
+
+    .downbutton {
+      right: 100px;
+    }
+
+    .topbutton a,
+    .downbutton a {
+      font-size: xx-large;
+      font-weight: bold;
+      padding: 12px 24px 12px 24px;
+      text-decoration: none;
+      color: #fff;
     }
 
     a {
-      color: #bb86fc;
+      display: inline;
       text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Header */
-    header {
-      background-color: #1f1f1f;
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 1px solid #333;
-    }
-
-    header h1,
-    header h2 {
-      color: #bb86fc;
       margin: 0;
     }
 
-    /* Navigation */
-    .navbtnbar {
-      background-color: #333;
-      padding: 1rem;
+    .formularinput {
+      justify-items: center;
+      border-radius: 6px;
+      margin: 8px 8px 0px 8px;
+      padding: 0px 8px 4px 8px;
+      font-family: var(--font-text-learn);
+      position: relative;
     }
 
-    .navbtntable ul {
-      list-style-type: none;
-      padding: 0;
+    .formularlabel {
+      display: block;
+      font-family: var(--font-text-learn);
+      font-size: large;
+      margin: 4px 0px 0px 0px;
+      padding: 4px 0px 0px 0px;
+    }
+
+    .formularcontrol {
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-text-learn);
+      font-size: large;
+      margin: 4px 0px 0px 0px;
+      padding: 2px 0px 0px 0px;
+      padding-inline-start: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .primarybtn {
+      justify-items: center;
+      font-size: large;
+      font-weight: bold;
+      font-family: var(--font-text-learn);
+      border-radius: 8px;
+      margin: 22px 4px 12px 16px;
+      padding: 4px 8px 4px 8px;
+      cursor: pointer;
+      width: 10rem;
+    }
+
+    .secondlist-element {
+      overflow: hidden;
+      padding-left: 24px;
     }
 
     .navbtntable ul li {
-      margin: 0.5rem 0;
+      margin: 2px 0px 2px 0px;
+      padding: 2px 0px 2px 0px;
+      list-style-type: none;
+      width: max-content;
+      overflow: hidden;
     }
 
     .navbtntable ul li a {
-      color: #e0e0e0;
+      width: max-content;
+      border: none;
+      border-radius: 8px;
+      padding: 2px 16px 2px 16px;
+      font-family: var(--font-text-learn);
+      font-weight: bold;
+      font-size: large;
+      overflow: hidden;
+
     }
 
-    /* Main Content */
+    .navbtnbar .navbtntable ul ul {
+      display: block;
+    }
+
+    .indoctable {
+      margin: 0px 0px 8px 0px;
+      padding: 0px 0px 0px 0px;
+    }
+
+    .indoctable th,
+    .indoctablesecond th {
+      border: 0;
+      text-align: left;
+    }
+
+    .indoctable td,
+    .indoctablesecond td {
+      border-radius: 4px;
+      font-size: small;
+    }
+
+    .footernavigation {
+      list-style: none;
+    }
+
+    #footerdistance {
+      box-sizing: border-box;
+      width: 100%;
+      height: 90px;
+      border-radius: 2px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    body {
+      color: var(--body-text);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9pt;
+      margin: auto;
+    }
+
     main {
-      padding: 2rem;
-      background-color: #121212;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      border-radius: 2px;
+      font-size: 16pt;
     }
 
     h2 {
-      color: #bb86fc;
+      margin: 16px 32px 8px 32px;
+      color: rgb(255, 255, 255);
+      font-size: 14pt;
     }
 
-    p {
+    h3 {
+      margin: 8px 0px 8px 0px;
+      font-size: 12pt;
+    }
+
+    h4 {
+      margin: 8px 0px 8px 24px;
+      font-size: 11pt;
+    }
+
+    h5 {
+      margin: 8px 0px 8px 40px;
+      font-size: 10pt;
+    }
+
+    h6 {
+      margin-left: 48px;
+      font-size: 10pt;
+    }
+
+    .textcard,
+    .tablecard,
+    .formularcard {
+      margin: 0px 16px 0px 16px;
+      padding: 0px 16px 0px 16px;
+      border-radius: 2px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
       line-height: 1.6;
+      font-size: 16px;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
     }
 
-    /* Buttons */
+    header {
+      background: #c5d6df;
+      color: #333;
+      padding: 20px 0;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #4a4a4a;
+    }
+
+    nav {
+      background: #4da42e;
+      color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #333;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #0a703b;
+    }
+
     .primarybtn {
-      background-color: #bb86fc;
-      color: #121212;
+      background-color: #2689bf;
+      color: white;
+      padding: 10px 20px;
       border: none;
-      padding: 0.5rem 1rem;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
 
     .primarybtn:hover {
-      background-color: #3700b3;
+      background-color: #439bd9;
     }
 
-    /* Cards */
-    .notecard,
-    .textcard {
-      background-color: #1e1e1e;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    #lerncontainer {
+      margin: 20px 0;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
+    #zubeantwortendefrage,
+    #antwortderfrage {
+      margin: 15px 0;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+    }
 
-      header,
-      .navbtnbar,
-      main {
-        padding: 1rem;
-      }
+    .maincontain {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
 
-      .navbtntable ul li {
-        margin: 0.25rem 0;
-      }
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #4a4a4a;
+    }
+
+    .currentTime-styleSheme input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 1.1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .navbtntable ul,
+    .navbtntable ul li,
+    .navbtntable ul li a {
+      overflow: hidden;
     }
   </style>
-
   <script>
     function getRandomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
@@ -150,7 +453,7 @@
     </form>
 
     <script>
-      
+
       function currentHeight() {
         let heighDoc = (document.body.scrollHeight) * 2 / 970;
         let inputElement = document.getElementById("currenttime");
@@ -201,7 +504,8 @@
             <li><a href="#quest004">#004 Kenntnis der Begriffe Gibibyte, Tebibyte, Pebibyte, Exbibyte</a></li>
             <li><a href="#quest005">#005 Kenntnis der gebräuchlichen Zahlensysteme in der IT</a></li>
             <li><a href="#quest006">#006 Umwandlung zwischen Binär-, Dezimal- und Hexadezimalzahlen</a></li>
-            <li><a href="#quest007">#007 Kenntnis der Logik-Schaltungen (AND, OR, XOR, NOT) und deren Wahrheitstabellen</a></li>
+            <li><a href="#quest007">#007 Kenntnis der Logik-Schaltungen (AND, OR, XOR, NOT) und deren
+                Wahrheitstabellen</a></li>
           </ul>
           <li><a href="#lapcard02">#02 Betriebssysteme und Software</a></li>
           <ul class="secondlist-element">
@@ -223,34 +527,41 @@
             <li><a href="#quest020">#020 Kenntnisse über Android</a></li>
             <li><a href="#quest021">#021 Kenntnisse über IOS</a></li>
             <li><a href="#quest022">#022 Fachbegriff QR-Code</a></li>
-            <li><a href="#quest023">#023 Vor- und Nachteile von geschlossenen Systemen mit Betriebssystem und App-Store</a></li>
+            <li><a href="#quest023">#023 Vor- und Nachteile von geschlossenen Systemen mit Betriebssystem und
+                App-Store</a></li>
           </ul>
           <li><a href="#lapcard04">#04 Technische Dokumentationen / Projektarbeit / Schulungen</a></li>
           <ul class="secondlist-element">
             <li><a href="#quest024">#024 Aufgabe und Strukturierung von Testläufen</a></li>
             <li><a href="#quest025">#025 Protokollieren technischer Arbeiten</a></li>
-            <li><a href="#quest026">#026 Inhalt einer technischen Dokumentation / technisches Protokoll (z.B. FAQ, …)</a></li>
+            <li><a href="#quest026">#026 Inhalt einer technischen Dokumentation / technisches Protokoll (z.B. FAQ,
+                …)</a></li>
             <li><a href="#quest027">#027 Aufbereitung einer technischen Dokumentation / technisches Protokoll</a></li>
-            <li><a href="#quest028">#028 Kenntnis über Abläufe und Prozess schritte zum Roll-out von Applikationen</a></li>
+            <li><a href="#quest028">#028 Kenntnis über Abläufe und Prozess schritte zum Roll-out von Applikationen</a>
+            </li>
             <li><a href="#quest029">#029 Gestaltung und Vorbereitung von Präsentationen</a></li>
           </ul>
           <li><a href="#lapcard05">#05 Gesetzliche Bestimmungen</a></li>
           <ul class="secondlist-element">
             <li><a href="#quest030">#030 Kenntnis über DSGVO</a></li>
             <li><a href="#quest031">#031 Fachbegriff "Datenminimierung" im Zusammenhang der DSGVO</a></li>
-            <li><a href="#quest032">#032 Fachbegriffe "betroffene Personen", Verantwortlicher, Auftragsverarbeiter</a></li>
+            <li><a href="#quest032">#032 Fachbegriffe "betroffene Personen", Verantwortlicher, Auftragsverarbeiter</a>
+            </li>
             <li><a href="#quest033">#033 Kenntnis über Rechte von "betroffene Personen" lt. DSGVO</a></li>
             <li><a href="#quest034">#034 Fachbegriff "personenbezogene und sensible Daten" lt. DSGVO</a></li>
             <li><a href="#quest035">#035 Bedeutung von Kopplungsverbot beim DSGVO</a></li>
             <li><a href="#quest036">#036 Datenschutz beauftragter lt. DSGVO und dessen Funktion</a></li>
-            <li><a href="#quest037">#037 Pflichten für Unternehmen bei bekannt gewordenen Datendiebstahl lt. DSGVO</a></li>
-            <li><a href="#quest038">#038 Kenntnisse über Grundbegriffe und Gültigkeitsbereich des Urheberrechtes</a></li>
-            <li><a href="#quest039">#039 Kenntnis gesetzlicher Gewährleistungs- und Garantie- Bestimmungen und deren unterschiedlicher Anwendung bei Hardware- und Softwareproblemen</a></li>
-            <li><a href="#quest040">#040 Kenntnisse über umweltgerechte Entsorgung von Elektronikschrott, Toner, Akkus oder Batterien</a></li>
+            <li><a href="#quest037">#037 Pflichten für Unternehmen bei bekannt gewordenen Datendiebstahl lt. DSGVO</a>
+            </li>
+            <li><a href="#quest038">#038 Kenntnisse über Grundbegriffe und Gültigkeitsbereich des Urheberrechtes</a>
+            </li>
+            <li><a href="#quest039">#039 Kenntnis gesetzlicher Gewährleistungs- und Garantie- Bestimmungen und deren
+                unterschiedlicher Anwendung bei Hardware- und Softwareproblemen</a></li>
+            <li><a href="#quest040">#040 Kenntnisse über umweltgerechte Entsorgung von Elektronikschrott, Toner, Akkus
+                oder Batterien</a></li>
             <li><a href="#quest041">#041 Kenntnisse über das E-Commerce-Gesetz (ECG)</a></li>
             <li><a href="#quest042">#042 Kenntnisse über das Telekom-Gesetz (TKG)</a></li>
-            <li><a href="#quest043">#043 Kenntnisse über Pflichtangaben eines Homepage-Betreibers
-                (Impressum)</a></li>
+            <li><a href="#quest043">#043 Kenntnisse über Pflichtangaben eines Homepage-Betreibers (Impressum)</a></li>
             <li><a href="#quest044">#044 Kenntnisse über Pflichtangaben beim E-Mail-Verkehr von Unternehmen</a></li>
             <li><a href="#quest045">#045 Kenntnisse über die gesetzliche Einhaltung von Bildschirmpausen</a></li>
           </ul>
@@ -272,7 +583,8 @@
           </ul>
           <li><a href="#lapcard07">#07 IT-Security</a></li>
           <ul class="secondlist-element">
-            <li><a href="#quest059">#059 Kenntnisse über Gefahren von Viren, Würmern, Trojanern, Spyware, Hackern und Phishing</a></li>
+            <li><a href="#quest059">#059 Kenntnisse über Gefahren von Viren, Würmern, Trojanern, Spyware, Hackern und
+                Phishing</a></li>
             <li><a href="#quest060">#060 Fachbegriff Zero-Day-Exploit</a></li>
             <li><a href="#quest061">#061 Kenntnisse über Einschränkungs möglichkeiten bei Benutzerkonten</a></li>
             <li><a href="#quest062">#062 Funktion einer Software-Firewall</a></li>
@@ -293,31 +605,40 @@
             <li><a href="#quest074">#074 Kenntnisse über die Gefahr von Identitätsdiebstahl</a></li>
             <li><a href="#quest075">#075 Fachbegriff Netzneutralität</a></li>
             <li><a href="#quest076">#076 Kenntnisse über Vor- und Nachteile bei Nutzung von biometrischen Daten</a></li>
-            <li><a href="#quest077">#077 Inhalte von Unternehmens richtlinien für Nutzung von sozialen Netzwerken</a></li>
+            <li><a href="#quest077">#077 Inhalte von Unternehmens richtlinien für Nutzung von sozialen Netzwerken</a>
+            </li>
           </ul>
           <li><a href="lapcard09">#09 Ergonomische Gestaltung eines Arbeitsplatzes</a></li>
-          <ul class="secondlist-elements">
-            <li><a href="#quest078">#078 Kenntnisse über die ergonomische Einrichtung eines Bildschirm arbeitsplatzes</a></li>
-            <li><a href="#quest079">#079 Kenntnisse über den optimalen Aufstellungsort von Bildschirmen (Lichteinfall)</a></li>
-            <li><a href="#quest080">#080 Kenntnisse der gesetzlichen Bestimmungen von Pausen bei Bildschirmarbeit</a></li>
-            <li><a href="#quest081">#081 Kenntnisse über die ideale Höhe von Tisch/Tastatur, Bildschirmoberkante und Bildschirmabstand zum Benutzer</a></li>
-            <li><a href="#quest082">#082 Kenntnisse über Schutzmaßnahmen zur Vorbeugung körperlicher Schäden bei sitzender Tätigkeit</a></li>
-            <li><a href="#quest083">#083 Kenntnisse über körperliche Entspannungsübungen bei sitzender Tätigkeit</a></li>
+          <ul class="secondlist-element">
+            <li><a href="#quest078">#078 Kenntnisse über die ergonomische Einrichtung eines Bildschirm
+                arbeitsplatzes</a></li>
+            <li><a href="#quest079">#079 Kenntnisse über den optimalen Aufstellungsort von Bildschirmen
+                (Lichteinfall)</a></li>
+            <li><a href="#quest080">#080 Kenntnisse der gesetzlichen Bestimmungen von Pausen bei Bildschirmarbeit</a>
+            </li>
+            <li><a href="#quest081">#081 Kenntnisse über die ideale Höhe von Tisch/Tastatur, Bildschirmoberkante und
+                Bildschirmabstand zum Benutzer</a></li>
+            <li><a href="#quest082">#082 Kenntnisse über Schutzmaßnahmen zur Vorbeugung körperlicher Schäden bei
+                sitzender Tätigkeit</a></li>
+            <li><a href="#quest083">#083 Kenntnisse über körperliche Entspannungsübungen bei sitzender Tätigkeit</a>
+            </li>
           </ul>
           <li><a href="#lapcard10">#10 Fachberatung, Planung</a></li>
-          <ul class="secondlist-elements">
-            <li><a href="#quest084">#084 Führen von fachspezifischen Verkaufsgesprächen, Produktberatung, Kompetenz, technische Zusammenhänge beratend erklären zu können</a></li>
+          <ul class="secondlist-element">
+            <li><a href="#quest084">#084 Führen von fachspezifischen Verkaufsgesprächen, Produktberatung, Kompetenz,
+                technische Zusammenhänge beratend erklären zu können</a></li>
             <li><a href="#quest085">#085 Beratung und Erstellen kundenorientierter Softwarelösungen</a></li>
             <li><a href="#quest086">#086 Kenntnisse über richtigen Umgang bei Reklamationen</a></li>
             <li><a href="#quest087">#087 Richtiger Kundenumgang bei folgenreichen technischen Problemen</a></li>
           </ul>
           <li><a href="#lapcard11">#11 Informatik</a></li>
-          <ul class="secondlist-elements">
+          <ul class="secondlist-element">
             <li><a href="#quest088">#088 Fachbegriff Informatik</a></li>
             <li><a href="#quest089">#089 Typen von Webseiten</a></li>
             <li><a href="#quest090">#090 Fachbegriffe Weblog, Webshop, Web-Plattform</a></li>
             <li><a href="#quest091">#091 Auszeichnungs sprachen HTML, XML -> Fachbegriff und Einsatzgebiet</a></li>
-            <li><a href="#quest092">#092 Kenntnisse über das HTML5-Grundgerüst mit den wichtigsten Bestandteilen</a></li>
+            <li><a href="#quest092">#092 Kenntnisse über das HTML5-Grundgerüst mit den wichtigsten Bestandteilen</a>
+            </li>
             <li><a href="#quest093">#093 Fachbegriff Meta-Element/Metadaten</a></li>
             <li><a href="#quest094">#094 Fachbegriff SEO und Maßnahmen</a></li>
             <li><a href="#quest095">#095 Fachbegriff Cascading StyleSheets und deren Einsatz</a></li>
@@ -348,7 +669,8 @@
             <li><a href="#quest120">#120 Kenntnisse über aktuelle Programmiersprachen</a></li>
             <li><a href="#quest121">#121 Kenntnisse über Programmiersprachen für mobile Anwendungen / Internet</a></li>
             <li><a href="#quest122">#122 Kenntnisse über die Anwendung von JAVA-Technologien im Web</a></li>
-            <li><a href="#quest123">#123 Grundkenntnisse über die Anwendung der .NET-Technologien im Web (ASP.NET)</a></li>
+            <li><a href="#quest123">#123 Grundkenntnisse über die Anwendung der .NET-Technologien im Web (ASP.NET)</a>
+            </li>
             <li><a href="#quest124">#124 Fachbegriff Metadaten</a></li>
             <li><a href="#quest125">#125 Prinzipien der Software entwicklung: KISS, DRY</a></li>
             <li><a href="#quest126">#126 Kenntnisse über Coding-Standards/Code-Konventionen</a></li>
@@ -358,7 +680,7 @@
             <li><a href="#quest130">#130 CI/CD Vorgaben bei der Applikations entwicklung</a></li>
           </ul>
           <li><a href="#lapcard12">#12 Projektmanagement</a></li>
-          <ul class="secondlist-elements">
+          <ul class="secondlist-element">
             <li><a href="#quest131">#131 Fachbegriff Projektmanagement</a></li>
             <li><a href="#quest132">#132 Definition von Projekten</a></li>
             <li><a href="#quest133">#133 Fachbegriff Pflichtenheft und notwendiger Inhalt</a></li>
@@ -381,7 +703,7 @@
             <li><a href="#quest150">#150 Kenntnis Projekt kostenplanung</a></li>
           </ul>
           <li><a href="#lapcard13">#13 Projektmethoden, Tools</a></li>
-          <ul class="secondlist-elements">
+          <ul class="secondlist-element">
             <li><a href="#quest151">#151 Kenntnisse über Software prozess modelle</a></li>
             <li><a href="#quest152">#152 Kenntnisse über den Aufbau des Wasserfallmodells</a></li>
             <li><a href="#quest153">#153 Kenntnisse über Agiles Projektmanagement / Methoden</a></li>
@@ -402,19 +724,21 @@
             <li><a href="#quest168">#168 Fachbegriff Versionsverwaltung</a></li>
           </ul>
           <li><a href="#lapcard14">#14 Qualitätssicherung</a></li>
-          <ul class="secondlist-elements">
+          <ul class="secondlist-element">
             <li><a href="#quest169">#169 Kenntnisse über den Zweck von Code-Reviews</a></li>
             <li><a href="#quest170">#170 Fachbegriff Schreibtischtest</a></li>
-            <li><a href="#quest171">#171 Kenntnisse über Black-Box-Test/White-Box-Test, wesentliche Unterschiede</a></li>
+            <li><a href="#quest171">#171 Kenntnisse über Black-Box-Test/White-Box-Test, wesentliche Unterschiede</a>
+            </li>
             <li><a href="#quest172">#172 Kenntnisse über wichtige Qualitätsmerkmale der Software funktionalität</a></li>
             <li><a href="#quest173">#173 Kenntnisse über Changemanagement</a></li>
             <li><a href="#quest174">#174 Fachbegriff Versionierung und deren Nutzen</a></li>
             <li><a href="#quest175">#175 Kenntnisse über Problemmanagement</a></li>
           </ul>
           <li><a href="lapcard15">#15 Grundkenntnisse des Programmierens</a></li>
-          <ul class="secondlist-elements">
+          <ul class="secondlist-element">
             <li><a href="#quest176">#176 Stadien der Softwareentwicklung</a></li>
-            <li><a href="#quest177">#177 Fachbegriffe Prozedurale Programmierung, Objektorientierte Programmierung, Unterschiede</a></li>
+            <li><a href="#quest177">#177 Fachbegriffe Prozedurale Programmierung, Objektorientierte Programmierung,
+                Unterschiede</a></li>
             <li><a href="#quest178">#178 Fachbegriff Algorithmus</a></li>
             <li><a href="#quest179">#179 Fachbegriff Pseudocode</a></li>
             <li><a href="#quest180">#180 Kenntnisse über Sortieralgorithmen</a></li>
@@ -430,12 +754,13 @@
             <li><a href="#quest190">#190 Unterschied Variable und Konstante</a></li>
             <li><a href="#quest191">#191 Gültigkeitsbereiche (Lebensdauer) von Variablen</a></li>
             <li><a href="#quest192">#192 Fachbegriff Schleifen, Beispiele für Schleifen</a></li>
-            <li><a href="#quest193">#193 Fachbegriffe "kopfgesteuert" bzw. "fußgesteuert" im Zusammenhang mit Schleifen</a></li>
+            <li><a href="#quest193">#193 Fachbegriffe "kopfgesteuert" bzw. "fußgesteuert" im Zusammenhang mit
+                Schleifen</a></li>
             <li><a href="#quest194">#194 Kenntnisse über Verzweigungen und Fall unterscheidungen</a></li>
             <li><a href="#quest195">#195 Kenntnis der objektorientierten Programmierung</a></li>
           </ul>
           <li><a href="lapcard16">#16 Datenbanken, Datenmodelle und Datenstruktur</a></li>
-          <ul class="secondlist-elements">
+          <ul class="secondlist-element">
             <li><a href="#quest196">#196 Fachbegriff Datenbanksysteme</a></li>
             <li><a href="#quest197">#197 Fachbegriffe zu Datenbankabfragen</a></li>
             <li><a href="#quest198">#198 Fachbegriff Datenbank management system (DBMS)</a></li>
@@ -444,7 +769,8 @@
             <li><a href="#quest201">#201 Fachbegriff Redundanz im Zusammenhang mit Datenbanken</a></li>
             <li><a href="#quest202">#202 Vorgangsweise bei der Datenmodellierung (RDB)</a></li>
             <li><a href="#quest203">#203 Kenntnisse über grundlegende Datenbank operationen</a></li>
-            <li><a href="#quest204">#204 Kenntnisse über die ersten drei Normalformen im Zusammenhang mit Datenbanken</a></li>
+            <li><a href="#quest204">#204 Kenntnisse über die ersten drei Normalformen im Zusammenhang mit
+                Datenbanken</a></li>
             <li><a href="#quest205">#205 Fachbegriffe Primärschlüssel, Fremdschlüssel, Relationen</a></li>
             <li><a href="#quest206">#206 Kenntnis über Vor- und Nachteile bei Verwendung eines Indexes</a></li>
             <li><a href="#quest207">#207 Vor- und Nachteile von Freeware Datenbanken</a></li>
@@ -457,7 +783,7 @@
             <li><a href="#quest214">#214 Kenntnisse der Abläufe und Prozessschritte (Daten)</a></li>
           </ul>
           <li><a href="#lapcard17">#17 Systementwicklung / Testkonzepte</a></li>
-          <ul class="secondlist-elements">
+          <ul class="secondlist-element">
             <li><a href="#quest215">#215 Fachbegriff Programmspezifikation</a></li>
             <li><a href="#quest216">#216 Fachbegriff Datenmodell</a></li>
             <li><a href="#quest217">#217 Kenntnisse über wichtige Datentypen und Datenstrukturen</a></li>
@@ -469,7 +795,8 @@
             <li><a href="#quest223">#223 Kenntnisse über Testkonzepte</a></li>
             <li><a href="#quest224">#224 Auswertung eines Softwaretests</a></li>
             <li><a href="#quest225">#225 Kriterien für den Test von Datenbankfeldern unterschiedlicher Typen</a></li>
-            <li><a href="#quest226">#225 Unterschiede zwischen einem reproduzierbaren / nicht-reproduzierbaren Fehler</a></li>
+            <li><a href="#quest226">#225 Unterschiede zwischen einem reproduzierbaren / nicht-reproduzierbaren
+                Fehler</a></li>
             <li><a href="#quest227">#227 Kenntnisse über Möglichkeiten zur Automatisierung von Tests</a></li>
           </ul>
         </ul>
@@ -484,43 +811,62 @@
     <div class="maincontain" id="bundesgesetzblatt">
       <!-- verbesserungsvorschlaege -->
       <div style="display: none;">
-Basierend auf meiner Überprüfung des Dokuments "Guide für die Lehrabschlussprüfung für Applikationsentwickler" habe ich einige Verbesserungsvorschläge:
+        Basierend auf meiner Überprüfung des Dokuments "Guide für die Lehrabschlussprüfung für Applikationsentwickler"
+        habe ich einige Verbesserungsvorschläge:
 
-### Vorschläge für den Inhalt
+        ### Vorschläge für den Inhalt
 
-1. **Detaillierte Definitionen und Beispiele:**
-   - Jeder technische Begriff oder Konzept, wie "Programmspezifikation" oder "Datenmodell," sollte mit praktischen Beispielen versehen werden. Dies macht die Informationen greifbarer und leichter verständlich für den Leser.
+        1. **Detaillierte Definitionen und Beispiele:**
+        - Jeder technische Begriff oder Konzept, wie "Programmspezifikation" oder "Datenmodell," sollte mit praktischen
+        Beispielen versehen werden. Dies macht die Informationen greifbarer und leichter verständlich für den Leser.
 
-2. **Visuelle Hilfsmittel:**
-   - Integrieren Sie Diagramme, Flussdiagramme und Tabellen, wo immer möglich, um komplexe Prozesse wie "Systementwicklung" und "Testkonzepte" visuell darzustellen. Visuelle Hilfsmittel helfen beim besseren Verständnis und der Informationsspeicherung.
+        2. **Visuelle Hilfsmittel:**
+        - Integrieren Sie Diagramme, Flussdiagramme und Tabellen, wo immer möglich, um komplexe Prozesse wie
+        "Systementwicklung" und "Testkonzepte" visuell darzustellen. Visuelle Hilfsmittel helfen beim besseren
+        Verständnis und der Informationsspeicherung.
 
-3. **Schritt-für-Schritt-Anleitungen:**
-   - Für Abschnitte wie "Continuous Integration (CI) und Continuous Delivery (CD)" und "Abläufe und Prozessschritte" bieten Sie Schritt-für-Schritt-Anleitungen oder Checklisten an. Dies hilft den Lernenden, die sequentiellen Prozesse dieser Konzepte zu verstehen.
+        3. **Schritt-für-Schritt-Anleitungen:**
+        - Für Abschnitte wie "Continuous Integration (CI) und Continuous Delivery (CD)" und "Abläufe und
+        Prozessschritte" bieten Sie Schritt-für-Schritt-Anleitungen oder Checklisten an. Dies hilft den Lernenden, die
+        sequentiellen Prozesse dieser Konzepte zu verstehen.
 
-4. **Real-World-Szenarien:**
-   - Fügen Sie Fallstudien oder realistische Szenarien in Abschnitte wie "Beratung und Erstellen kundenorientierter Softwarelösungen" ein, um die praktische Anwendung des theoretischen Wissens zu zeigen. Dies überbrückt die Lücke zwischen Lernen und realer Anwendung.
+        4. **Real-World-Szenarien:**
+        - Fügen Sie Fallstudien oder realistische Szenarien in Abschnitte wie "Beratung und Erstellen kundenorientierter
+        Softwarelösungen" ein, um die praktische Anwendung des theoretischen Wissens zu zeigen. Dies überbrückt die
+        Lücke zwischen Lernen und realer Anwendung.
 
-5. **Coding-Standards und Best Practices:**
-   - Erläutern Sie Coding-Standards und Best Practices mit Beispielen. Dies ist besonders wichtig für Abschnitte wie "Coding-Standards/Code-Konventionen" und hilft den Lernenden, diese Standards effektiv anzuwenden.
+        5. **Coding-Standards und Best Practices:**
+        - Erläutern Sie Coding-Standards und Best Practices mit Beispielen. Dies ist besonders wichtig für Abschnitte
+        wie "Coding-Standards/Code-Konventionen" und hilft den Lernenden, diese Standards effektiv anzuwenden.
 
-### Vorschläge für den Text
+        ### Vorschläge für den Text
 
-1. **Klarer und prägnanter Sprachstil:**
-   - Vereinfachen Sie die Sprache, wo immer möglich, um sie für alle Leser zugänglich zu machen. Vermeiden Sie zu technischen Fachjargon ohne Erklärung und stellen Sie sicher, dass jeder Begriff bei der ersten Erwähnung definiert wird.
+        1. **Klarer und prägnanter Sprachstil:**
+        - Vereinfachen Sie die Sprache, wo immer möglich, um sie für alle Leser zugänglich zu machen. Vermeiden Sie zu
+        technischen Fachjargon ohne Erklärung und stellen Sie sicher, dass jeder Begriff bei der ersten Erwähnung
+        definiert wird.
 
-2. **Konsistente Formatierung:**
-   - Stellen Sie eine konsistente Formatierung im gesamten Dokument sicher. Dies umfasst die einheitliche Verwendung von Überschriften, Unterüberschriften, Aufzählungspunkten und Einrückungen für eine bessere Lesbarkeit und ein professionelles Erscheinungsbild.
+        2. **Konsistente Formatierung:**
+        - Stellen Sie eine konsistente Formatierung im gesamten Dokument sicher. Dies umfasst die einheitliche
+        Verwendung von Überschriften, Unterüberschriften, Aufzählungspunkten und Einrückungen für eine bessere
+        Lesbarkeit und ein professionelles Erscheinungsbild.
 
-3. **Interaktive Elemente:**
-   - Falls das Dokument digital ist, fügen Sie interaktive Elemente wie Hyperlinks zu zusätzlichen Ressourcen, Video-Tutorials oder Online-Coding-Plattformen ein, auf denen die Lernenden die Konzepte in Echtzeit üben können.
+        3. **Interaktive Elemente:**
+        - Falls das Dokument digital ist, fügen Sie interaktive Elemente wie Hyperlinks zu zusätzlichen Ressourcen,
+        Video-Tutorials oder Online-Coding-Plattformen ein, auf denen die Lernenden die Konzepte in Echtzeit üben
+        können.
 
-4. **Feedback- und Überprüfungsabschnitte:**
-   - Fügen Sie am Ende jedes Kapitels Abschnitte für Lernenden-Feedback und Selbstbewertung hinzu. Dies kann Quizfragen, Übungsprobleme oder Reflexionsfragen umfassen, um das Lernen zu verstärken.
+        4. **Feedback- und Überprüfungsabschnitte:**
+        - Fügen Sie am Ende jedes Kapitels Abschnitte für Lernenden-Feedback und Selbstbewertung hinzu. Dies kann
+        Quizfragen, Übungsprobleme oder Reflexionsfragen umfassen, um das Lernen zu verstärken.
 
-5. **Aktuelle Informationen:**
-   - Stellen Sie sicher, dass alle Informationen aktuell sind, besonders in schnelllebigen Bereichen wie Programmiersprachen und Softwareentwicklungsmethoden. Regelmäßige Aktualisierungen des Leitfadens halten ihn relevant und nützlich.
+        5. **Aktuelle Informationen:**
+        - Stellen Sie sicher, dass alle Informationen aktuell sind, besonders in schnelllebigen Bereichen wie
+        Programmiersprachen und Softwareentwicklungsmethoden. Regelmäßige Aktualisierungen des Leitfadens halten ihn
+        relevant und nützlich.
 
-Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreundlicher und effektiver bei der Vorbereitung der Lernenden auf ihre Abschlussprüfungen in der Anwendungsentwicklung zu machen.
+        Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreundlicher und effektiver bei der
+        Vorbereitung der Lernenden auf ihre Abschlussprüfungen in der Anwendungsentwicklung zu machen.
       </div>
 
       <!-- #1 Lehrjahr -->
@@ -1286,34 +1632,41 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <br>
             <b>Grundlegende PowerShell-Befehle:</b> <br>
             <br>
-            - `Get-Help`: Zeigt eine Hilfe zu PowerShell-Befehlen und deren Nutzung an. Beispiel: `Get-Help Get-Process`
+            - <span style="font-family: 'Consolas';">Get-Help</span>: Zeigt eine Hilfe zu
+            PowerShell-Befehlen und deren Nutzung an. Beispiel: <span style="font-family: 'Consolas';">Get-Help
+              Get-Process</span> <br>
             <br>
+            - <span style="font-family: 'Consolas';">Get-Command</span>: Listet alle cmdlets, Funktionen, Skripte und
+            Aliase, die in der PowerShell-Sitzung verfügbar sind. Beispiel: <span
+              style="font-family: 'Consolas';">Get-Command *process*</span> <br>
             <br>
-            - `Get-Command`: Listet alle cmdlets, Funktionen, Skripte und Aliase, die in der PowerShell-Sitzung
-            verfügbar sind. Beispiel: `Get-Command *process*` <br>
+            - <span style="font-family: 'Consolas';">Get-Process</span>: Zeigt Informationen zu den aktuell laufenden
+            Prozessen auf dem System an. Beispiel: <span style="font-family: 'Consolas';">Get-Process</span> <br>
             <br>
-            - `Get-Process`: Zeigt Informationen zu den aktuell laufenden Prozessen auf dem System an. Beispiel:
-            `Get-Process` <br>
+            - <span style="font-family: 'Consolas';">Get-Service</span>: Zeigt alle Dienste und deren aktuellen Status
+            auf dem lokalen Computer an. Beispiel: <span style="font-family: 'Consolas';">Get-Service</span> <br>
             <br>
-            - `Get-Service`: Zeigt alle Dienste und deren aktuellen Status auf dem lokalen Computer an. Beispiel:
-            `Get-Service` <br>
+            - <span style="font-family: 'Consolas';">Set-ExecutionPolicy</span>: Ändert die Ausführungsrichtlinie für
+            PowerShell-Skripte (wichtig für das Ausführen von Skripten). Beispiel: <span
+              style="font-family: 'Consolas';">Set-ExecutionPolicy RemoteSigned</span> <br>
             <br>
-            - `Set-ExecutionPolicy`: Ändert die Ausführungsrichtlinie für PowerShell-Skripte (wichtig für das Ausführen
-            von Skripten). Beispiel: `Set-ExecutionPolicy RemoteSigned` <br>
+            - <span style="font-family: 'Consolas';">Start-Service</span> und <span
+              style="font-family: 'Consolas';">Stop-Service</span>: Startet oder stoppt einen Dienst. Beispiel: <span
+              style="font-family: 'Consolas';">Start-Service -Name "wuauserv"</span> <br>
             <br>
-            - `Start-Service` und `Stop-Service`: Startet oder stoppt einen Dienst. Beispiel: `Start-Service -Name
-            "wuauserv"` <br>
+            - <span style="font-family: 'Consolas';">New-Item</span>: Erstellt eine neue Datei oder ein Verzeichnis.
+            Beispiel: <span style="font-family: 'Consolas';">New-Item -Path 'C:\example.txt' -ItemType File</span> <br>
             <br>
-            - `New-Item`: Erstellt eine neue Datei oder ein Verzeichnis. Beispiel: `New-Item -Path 'C:\example.txt'
-            -ItemType File` <br>
+            - <span style="font-family: 'Consolas';">Copy-Item</span>: Kopiert Dateien und Verzeichnisse. Beispiel:
+            <span style="font-family: 'Consolas';">Copy-Item -Path 'C:\example.txt' -Destination
+              'C:\backup\example.txt'</span> <br>
             <br>
-            - `Copy-Item`: Kopiert Dateien und Verzeichnisse. Beispiel: `Copy-Item -Path 'C:\example.txt' -Destination
-            'C:\backup\example.txt'` <br>
+            - <span style="font-family: 'Consolas';">Remove-Item</span>: Löscht Dateien oder Verzeichnisse. Beispiel:
+            <span style="font-family: 'Consolas';">Remove-Item -Path 'C:\example.txt'</span> <br>
             <br>
-            - `Remove-Item`: Löscht Dateien oder Verzeichnisse. Beispiel: `Remove-Item -Path 'C:\example.txt'` <br>
-            <br>
-            - `Set-Location` und `Get-Location`: Wechselt das aktuelle Verzeichnis bzw. zeigt es an. Beispiel:
-            `Set-Location -Path 'C:\Windows'` <br>
+            - <span style="font-family: 'Consolas';">Set-Location</span> und <span
+              style="font-family: 'Consolas';">Get-Location</span>: Wechselt das aktuelle Verzeichnis bzw. zeigt es an.
+            Beispiel: <span style="font-family: 'Consolas';">Set-Location -Path 'C:\Windows'</span> <br>
           </p>
         </div>
         <div class="textcard" id="quest016">
@@ -1900,9 +2253,9 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Position für bestimmte Organisationen. Der Datenschutzbeauftragte spielt eine Schlüsselrolle beim Schutz
             personenbezogener Daten und bei der Einhaltung der Datenschutzvorschriften. <br>
             <br>
-            <b>Organisationen und Unternehmen entscheiden selbst über die Qualifikationen ihres
-              Datenschutzbeauftragten, da die DSGVO die erforderlichen beruflichen Qualitäten nicht definiert und diese
-              auch nicht vorschreibt.</b> <br>
+            <b>Organisationen und Unternehmen entscheiden selbst über die Qualifikationen ihres Datenschutzbeauftragten,
+              da die DSGVO die erforderlichen beruflichen Qualitäten nicht definiert und diese auch nicht
+              vorschreibt.</b> <br>
             <br>
             - <b>Beratung und Überwachung:</b> Der DSB berät die Organisation bezüglich ihrer Pflichten unter
             der DSGVO und
@@ -1954,7 +2307,8 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Diese Pflichten sollen sicherstellen, dass sowohl die Aufsichtsbehörden als auch die betroffenen Personen
             angemessen und zeitnah über Datenschutzverletzungen informiert werden und dass Unternehmen
             verantwortungsvoll und proaktiv auf solche Vorfälle reagieren, um die Auswirkungen auf die betroffenen
-            Personen zu minimieren. <br> <br>
+            Personen zu minimieren. <br>
+            <br>
           </p>
         </div>
         <div class="textcard" id="quest038">
@@ -3519,21 +3873,36 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             zu erstellen. Es umfasst die essentiellen Elemente und Tags, die den Rahmen für den Inhalt und die
             Funktionalität der Webseite bilden. <br>
             <br>
-            `&lt;!DOCTYPE html&gt;`: Deklariert den HTML5-Standard. <br>
-            `&lt;html&gt;`: Das Wurzelelement, das den gesamten Inhalt der Webseite enthält. <br>
-            `&lt;head&gt;`: Enthält Meta-Informationen über die Seite, wie Zeichencodierung, Ansichtseinstellungen und
+            <span style="font-family: 'Consolas';">&lt;!DOCTYPE html&gt;</span>: Deklariert den
+            HTML5-Standard. <br>
+            <span style="font-family: 'Consolas';">&lt;html&gt;</span>: Das Wurzelelement, das
+            den gesamten Inhalt der Webseite enthält. <br>
+            <span style="font-family: 'Consolas';">&lt;head&gt;</span>: Enthält
+            Meta-Informationen über die Seite, wie Zeichencodierung, Ansichtseinstellungen und
             den Titel der Seite. <br>
-            `&lt;meta&gt;`: Definiert Metadaten für die Webseite, wie Zeichencodierung und Ansichtseinstellungen. <br>
-            `&lt;title&gt;`: Der Titel der Webseite, der im Browser-Tab angezeigt wird. <br>
-            `&lt;link&gt;`: Verweist auf externe CSS-Dateien zur Gestaltung der Seite. <br>
-            `&lt;style&gt;`: Erlaubt die Definition von Inline-CSS oder Styles für die Seite. <br>
-            `&lt;body&gt;`: Der Hauptinhalt der Webseite, der für den Benutzer sichtbar ist. <br>
-            `&lt;header&gt;`: Der Kopfbereich der Seite, der oft den Titel und die Navigation enthält. <br>
-            `&lt;nav&gt;`: Die Navigationsleiste oder das Menü. <br>
-            `&lt;ul&gt;` und `&lt;li&gt;`: Ungeordnete Liste und Listenelemente für die Navigation. <br>
-            `&lt;main&gt;`: Der Hauptinhalt der Webseite, der in der Regel die Artikel und den Haupttext enthält. <br>
-            `&lt;article&gt;`: Ein Bereich für Artikel oder Hauptinhalt. <br>
-            `&lt;footer&gt;`: Der Fußbereich der Seite, der oft Copyright-Informationen und Kontaktinformationen
+            <span style="font-family: 'Consolas';">&lt;meta&gt;</span>: Definiert Metadaten für
+            die Webseite, wie Zeichencodierung und Ansichtseinstellungen. <br>
+            <span style="font-family: 'Consolas';">&lt;title&gt;</span>: Der Titel der Webseite,
+            der im Browser-Tab angezeigt wird. <br>
+            <span style="font-family: 'Consolas';">&lt;link&gt;</span>: Verweist auf externe
+            CSS-Dateien zur Gestaltung der Seite. <br>
+            <span style="font-family: 'Consolas';">&lt;style&gt;</span>: Erlaubt die Definition
+            von Inline-CSS oder Styles für die Seite. <br>
+            <span style="font-family: 'Consolas';">&lt;body&gt;</span>: Der Hauptinhalt der
+            Webseite, der für den Benutzer sichtbar ist. <br>
+            <span style="font-family: 'Consolas';">&lt;header&gt;</span>: Der Kopfbereich der
+            Seite, der oft den Titel und die Navigation enthält. <br>
+            <span style="font-family: 'Consolas';">&lt;nav&gt;</span>: Die Navigationsleiste oder
+            das Menü. <br>
+            <span style="font-family: 'Consolas';">&lt;ul&gt;</span> und <span
+              style="font-family: 'Consolas';">&lt;li&gt;</span>: Ungeordnete Liste und
+            Listenelemente für die Navigation. <br>
+            <span style="font-family: 'Consolas';">&lt;main&gt;</span>: Der Hauptinhalt der
+            Webseite, der in der Regel die Artikel und den Haupttext enthält. <br>
+            <span style="font-family: 'Consolas';">&lt;article&gt;</span>: Ein Bereich für
+            Artikel oder Hauptinhalt. <br>
+            <span style="font-family: 'Consolas';">&lt;footer&gt;</span>: Der Fußbereich der
+            Seite, der oft Copyright-Informationen und Kontaktinformationen
             enthält. <br>
           </p>
         </div>
@@ -3957,7 +4326,9 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Weise zu strukturieren oder darzustellen. <br>
             <br>
             <b>Web-Frame:</b> <br>
-            `&lt;iframe src="video.html"&gt;` für eingebettete Videos; `&lt;iframe src="map.html"&gt;` für interaktive
+            <span style="font-family: 'Consolas';">&lt;iframe src="video.html"&gt;</span> für
+            eingebettete Videos; <span style="font-family: 'Consolas';">&lt;iframe src="map.html"&gt;</span> für
+            interaktive
             Karten auf Webseiten. <br>
             <br>
             <b>Anwendungsframework:</b> <br>
@@ -4134,7 +4505,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             - <b>APIs und Web Services:</b> Viele REST APIs nutzen JSON als Hauptformat für den Austausch von
             Daten. <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```json <br>
+            <span style="font-family: 'Consolas';">```json <br>
               { <br>
               &nbsp;&nbsp;"name": "John Doe", <br>
               &nbsp;&nbsp;"age": 30, <br>
@@ -4353,7 +4724,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>MySQLi-Erweiterung:</b> <br>
             - Bietet Funktionen für den Datenbankzugriff und -manipulation speziell für MySQL. <br>
             - Entwickler können zwischen einem prozeduralen und einem objektorientierten Ansatz wählen. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```php <br>
+            <span style="font-family: 'Consolas';">```php <br>
               $mysqli = new mysqli("host", "user", "password", "database"); <br>
               if ($mysqli->connect_error) { <br>
               &nbsp;&nbsp;die("Verbindung fehlgeschlagen: " . $mysqli->connect_error); <br>
@@ -4369,7 +4740,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             - Unterstützt mehrere Datenbanktypen, nicht nur MySQL, was die Portabilität des Codes erhöht. <br>
             - Bietet eine einheitliche API für den Zugriff auf verschiedene Datenbanksysteme. <br>
             - Erhöht die Sicherheit, indem SQL-Injektionen vermieden werden. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```php <br>
+            <span style="font-family: 'Consolas';">```php <br>
               $pdo = new PDO("mysql:host=host;dbname=database", "user", "password"); <br>
               $stmt = $pdo->prepare("SELECT * FROM tabelle WHERE spalte = :wert"); <br>
               $stmt->execute(['wert' => $wert]); <br>
@@ -4447,7 +4818,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             entsprechend der Bildschirmgröße, um Überladungen und Verzerrungen zu vermeiden. <br>
             - <b>CSS Media Queries:</b> Ermöglichen es, CSS-Regeln basierend auf der Bildschirmgröße,
             Auflösung und anderen Merkmalen des Geräts anzuwenden und anzupassen. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```css <br>
+            <span style="font-family: 'Consolas';">```css <br>
               @media (max-width: 768px) { <br>
               &nbsp;&nbsp;/* CSS-Regeln für Bildschirme kleiner als 768px */ <br>
               } <br>
@@ -4509,48 +4880,45 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>Python:</b> ist eine beliebte Hochsprache, die für ihre Einfachheit und Lesbarkeit bekannt
             ist. Sie wird in einer Vielzahl von Anwendungen eingesetzt, darunter Webentwicklung, Data Science,
             maschinelles Lernen, Automatisierung und mehr. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;"> `print('Hello World!')` </span><br>
+            <span style="font-family: 'Consolas';">print('Hello World!')</span> <br>
             <br>
             <b>JavaScript:</b> ist eine weit verbreitete Skriptsprache, die hauptsächlich für die
             Entwicklung von Webanwendungen verwendet wird. Sie wird für die Clientseitige Entwicklung (im Webbrowser)
             sowie für serverseitige Entwicklung mit Plattformen wie Node.js eingesetzt. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">`console.log('Hello World!');` </span><br>
+            <span style="font-family: 'Consolas';">console.log('Hello World!');</span> <br>
             <br>
             <b>C#:</b> ist eine von Microsoft entwickelte Programmiersprache, die eng mit der
             .NET-Plattform verbunden ist. Sie wird häufig für die Entwicklung von Windows-Anwendungen, Webanwendungen
             und Spieleentwicklung verwendet. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">`Console.WriteLine("Hello World!");`
-            </span><br>
+            <span style="font-family: 'Consolas';">Console.WriteLine("Hello World!");</span> <br>
             <br>
             <b>C++:</b> ist eine leistungsstarke, objektorientierte Programmiersprache, die für
             Systemprogrammierung, Spieleentwicklung, Embedded-Systeme und andere leistungsintensive Anwendungen
             verwendet wird. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">`#include &lt;iostream&gt;\nint main() {\n
-              std::cout
-              &lt;&lt; "Hello World!" &lt;&lt; std::endl;\n return 0;\n}` </span><br>
+            <span style="font-family: 'Consolas';">#include &lt;iostream&gt;\nint main() {\n std::cout &lt;&lt; "Hello
+              World!" &lt;&lt; std::endl;\n return 0;\n}</span> <br>
             <br>
             <b>Go:</b> auch bekannt als Golang, ist eine von Google entwickelte Programmiersprache, die
             sich durch Effizienz, einfache Syntax und hervorragende Unterstützung für nebenläufige Programmierung
             auszeichnet. Sie wird oft für Cloud-basierte Anwendungen und Systemprogrammierung eingesetzt. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">`package main\nimport "fmt"\nfunc main() {\n
-              fmt.Println("Hello World!")\n}` </span><br>
+            <span style="font-family: 'Consolas';">package main\nimport "fmt"\nfunc main() {\n fmt.Println("Hello
+              World!")\n}</span> <br>
             <br>
             <b>PHP:</b> ist eine weit verbreitete serverseitige Skriptsprache, die besonders für die
             Entwicklung dynamischer Webseiten und Anwendungen genutzt wird. Sie zeichnet sich durch ihre Flexibilität
             und eine große Standardbibliothek aus, die vielfältige Funktionen für Webentwicklung bietet. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">`&lt;?php echo 'Hello World!'; ?&gt;`
-            </span><br>
+            <span style="font-family: 'Consolas';">&lt;?php echo 'Hello World!'; ?&gt;</span> <br>
             <br>
             <b>Ruby:</b> ist eine interpretierte Hochsprache, die für ihre Eleganz und Lesbarkeit bekannt
             ist. Ruby unterstützt verschiedene Programmierparadigmen, darunter objektorientiert, funktional und
             prozedural. Die Sprache wird oft im Web-Entwicklungsbereich eingesetzt. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">`puts 'Hello World!'` </span><br>
+            <span style="font-family: 'Consolas';">puts 'Hello World!'</span> <br>
             <br>
             <b>Java:</b> ist eine objektorientierte Programmiersprache, die für ihre Portabilität und
             Vielseitigkeit bekannt ist. Sie wird in einer Vielzahl von Anwendungen eingesetzt, von Webanwendungen bis
             hin zu mobilen Apps und Unternehmenssystemen. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">`public class HelloWorld {\n public static
-              void main(String[] args) {\n System.out.println("Hello World!");\n }\n}`</span><br>
+            <span style="font-family: 'Consolas';">public class HelloWorld {\n public static void main(String[] args)
+              {\n System.out.println("Hello World!");\n }\n}</span> <br>
             <br>
             <b>Dart (mit Flutter)</b> - Flutter ist ein UI-Toolkit von Google für die Erstellung natively
             kompilierter Anwendungen für mobile, Web- und Desktop-Plattformen aus einer einzigen Codebasis. Dart ist die
@@ -5702,8 +6070,8 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>DevOps:</b> <br>
             - <b>Fokus auf Zusammenarbeit zwischen Entwicklung und Betrieb.</b> <br>
             - <b>Automatisierung des gesamten Softwarebereitstellungsprozesses.</b> <br>
-            - <b>Kontinuierliche Integration, Bereitstellung und Deployment zur Verbesserung der
-              Produktqualität.</b> <br>
+            - <b>Kontinuierliche Integration, Bereitstellung und Deployment zur Verbesserung der Produktqualität.</b>
+            <br>
           </p>
         </div>
         <div class="textcard" id="quest152">
@@ -6440,7 +6808,8 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Nutzer.
             Abschließend werden in der <b>Anpassungsphase</b> eventuell notwendige Optimierungen vorgenommen,
             um das System
-            vollständig in die Arbeitsabläufe des Unternehmens zu integrieren. <br> <br>
+            vollständig in die Arbeitsabläufe des Unternehmens zu integrieren. <br>
+            <br>
           </p>
         </div>
         <div class="textcard" id="quest174">
@@ -6604,8 +6973,8 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
           </h3>
           <p>
 
-            Die <b>prozedurale Programmierung</b> und die <b>objektorientierte Programmierung
-              (OOP)</b> sind zwei fundamentale
+            Die <b>prozedurale Programmierung</b> und die <b>objektorientierte Programmierung (OOP)</b> sind zwei
+            fundamentale
             Paradigmen(Beispiele) in der Softwareentwicklung, die unterschiedliche Ansätze und Konzepte für den Entwurf
             und die Implementierung von Softwareprogrammen bieten. <br>
             <br>
@@ -6720,7 +7089,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             und Kontexten
             wiederverwendet werden. <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```js <br>
+            <span style="font-family: 'Consolas';">```js <br>
               function sumArray(numbers) { <br>
               &nbsp;&nbsp;let sum = 0; // Initialisiere die Summe mit 0 <br>
               &nbsp;&nbsp;for (let i = 0; i &lt; numbers.length; i++) { <br>
@@ -6730,25 +7099,38 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
               } <br>
               const exampleArray = [1, 2, 3, 4, 5]; <br>
               const totalSum = sumArray(exampleArray); <br>
-              console.log(`Die Summe der Zahlen ist: ${totalSum}`); <br>
+              console.log(<span style="font-family: 'Consolas';">Die Summe der Zahlen ist: ${totalSum}</span>); <br>
               ```</span> <br>
             <br>
-            - Die Funktion `sumArray` nimmt ein Array von Zahlen als Eingabe. <br>
-            - Innerhalb der Funktion wird eine Variable `sum` initialisiert, die die Summe aller Zahlen im Array halten
+            - Die Funktion <span style="font-family: 'Consolas';">sumArray</span> nimmt ein Array
+            von Zahlen als Eingabe. <br>
+            - Innerhalb der Funktion wird eine Variable <span style="font-family: 'Consolas';">sum</span> initialisiert,
+            die die Summe aller
+            Zahlen im Array halten
             wird. <br>
-            - Mit einer `for`-Schleife wird durch jedes Element des Arrays iteriert. <br>
-            - In jedem Schritt der Iteration wird der Wert des aktuellen Elements zum Wert von `sum` addiert. <br>
-            - Nachdem die Schleife alle Elemente des Arrays durchlaufen hat, gibt die Funktion den Wert von `sum`
-            zurück, der die Gesamtsumme aller Zahlen im Array darstellt. <br>
+            - Mit einer <span style="font-family: 'Consolas';">for</span>-Schleife wird durch jedes Element des Arrays
+            iteriert. <br>
+            - In jedem Schritt der Iteration wird der Wert des aktuellen Elements zum Wert von <span
+              style="font-family: 'Consolas';">sum</span> addiert. <br>
+            - Nachdem die Schleife alle Elemente des Arrays durchlaufen hat, gibt die Funktion den Wert von <span
+              style="font-family: 'Consolas';">sum</span> zurück, der die Gesamtsumme aller Zahlen im Array darstellt.
             <br>
-            - Start mit `sum = 0` <br>
-            - Iteriere über jedes Element des Arrays und addiere dessen Wert zu `sum`: <br>
-            -- Nach dem ersten Element (`1`): `sum = 1` <br>
-            -- Nach dem zweiten Element (`2`): `sum = 3` <br>
-            -- Nach dem dritten Element (`3`): `sum = 6` <br>
-            -- Nach dem vierten Element (`4`): `sum = 10` <br>
-            -- Nach dem fünften Element (`5`): `sum = 15` <br>
-            - Die Funktion gibt `15` zurück, was die Summe aller Zahlen im Array ist. <br>
+            <br>
+            - Start mit <span style="font-family: 'Consolas';">sum = 0</span> <br>
+            - Iteriere über jedes Element des Arrays und addiere dessen Wert zu <span
+              style="font-family: 'Courier New', Courier, monospace;">sum</span>: <br>
+            -- Nach dem ersten Element (<span style="font-family: 'Consolas';">1</span>): <span
+              style="font-family: 'Consolas';">sum = 1</span> <br>
+            -- Nach dem zweiten Element (<span style="font-family: 'Consolas';">2</span>): <span
+              style="font-family: 'Consolas';">sum = 3</span> <br>
+            -- Nach dem dritten Element (<span style="font-family: 'Consolas';">3</span>): <span
+              style="font-family: 'Consolas';">sum = 6</span> <br>
+            -- Nach dem vierten Element (<span style="font-family: 'Consolas';">4</span>): <span
+              style="font-family: 'Consolas';">sum = 10</span> <br>
+            -- Nach dem fünften Element (<span style="font-family: 'Consolas';">5</span>): <span
+              style="font-family: 'Consolas';">sum = 15</span> <br>
+            - Die Funktion gibt <span style="font-family: 'Consolas';">15</span> zurück, was die Summe aller Zahlen im
+            Array ist. <br>
           </p>
         </div>
         <div class="textcard" id="quest179">
@@ -6777,7 +7159,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             realen
             Programmiersprachen sein, um eine relativ direkte Übersetzung in ausführbaren Code zu ermöglichen. <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```mathematica <br>
+            <span style="font-family: 'Consolas';">```mathematica <br>
               FUNKTION FindeMaximalesElement(Array A) <br>
               &nbsp;&nbsp;Setze Maximalwert = A[0] <br>
               &nbsp;&nbsp;F&Uuml;R jedes Element E in A ab dem zweiten Element <br>
@@ -6811,7 +7193,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             \(O(n^2)\), wobei \(n\) die Anzahl der Elemente ist. <br>
             - Stabil: Behält die relative Reihenfolge gleicher Schlüsselelemente bei. <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               function bubbleSort(arr) { <br>
               &nbsp;&nbsp;let n = arr.length; <br>
               &nbsp;&nbsp;for (let i = 0; i &lt; n - 1; i++) { <br>
@@ -6841,7 +7223,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Zeitkomplexität auf \(O(n^2)\) steigen, wenn das kleinste oder größte Element als Pivot gewählt wird. <br>
             - Nicht-stabil: Kann die relative Reihenfolge gleicher Schlüsselelemente ändern. <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               function quickSort(arr, low, high) { <br>
               &nbsp;&nbsp;if (low &lt; high) { <br>
               &nbsp;&nbsp;&nbsp;&nbsp;let pi = partition(arr, low, high); <br>
@@ -6902,7 +7284,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             - Funktioniert gut bei kleinen oder unsortierten Datensätzen. <br>
             - Durchschnittliche Zeitkomplexität: \(O(n)\), wobei \(n\) die Anzahl der Elemente ist. <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               function sequentialSearch(arr, x) { <br>
               &nbsp;&nbsp;for (let i = 0; i &lt; arr.length; i++) { <br>
               &nbsp;&nbsp;&nbsp;&nbsp;if (arr[i] === x) return i; // Element gefunden <br>
@@ -6923,7 +7305,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             - Sehr effizient für große Datensätze. <br>
             - Durchschnittliche Zeitkomplexität: \(O(\log n)\), wobei \(n\) die Anzahl der Elemente ist. <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               function binarySearch(arr, x) { <br>
               &nbsp;&nbsp;let left = 0, right = arr.length - 1; <br>
               &nbsp;&nbsp;while (left &lt;= right) { <br>
@@ -7003,14 +7385,17 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>Schlüsselwörter:</b> sind vordefinierte, reservierte Wörter, die eine spezielle Bedeutung in
             der
             Programmiersprache haben. Sie repräsentieren grundlegende Strukturen und Konzepte der Sprache, wie Schleifen
-            (z.B. `for`, `while`), Bedingungen (`if`, `else`) und Datentypen (`int`, `char`). Schlüsselwörter können
-            nicht als Identifikatoren (z.B. Variablennamen) verwendet werden. <br>
+            (z.B. <span style="font-family: 'Consolas';">for</span>, <span
+              style="font-family: 'Consolas';">while</span>), Bedingungen (<span
+              style="font-family: 'Consolas';">if</span>, <span style="font-family: 'Consolas';">else</span>) und
+            Datentypen (<span style="font-family: 'Consolas';">int</span>, <span
+              style="font-family: 'Consolas';">char</span>). Schlüsselwörter können nicht als Identifikatoren (z.B.
+            Variablennamen) verwendet werden. <br>
             <br>
             <b>Anweisung:</b> ist die kleinste ausführbare Einheit eines Programms, die eine Aktion ausführt.
-            Anweisungen
-            können Aufgaben wie die Zuweisung von Werten zu Variablen, die Ausführung von Berechnungen, die Steuerung
-            von Flussstrukturen und vieles mehr beinhalten. Ein Programm besteht in der Regel aus einer Sequenz von
-            Anweisungen. <br>
+            Anweisungen können Aufgaben wie die Zuweisung von Werten zu Variablen, die Ausführung von Berechnungen, die
+            Steuerung von Flussstrukturen und vieles mehr beinhalten. Ein Programm besteht in der Regel aus einer
+            Sequenz von Anweisungen. <br>
           </p>
         </div>
         <div class="textcard" id="quest184">
@@ -7142,7 +7527,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             reduziert oft den Codeumfang, kann aber zu erhöhtem Speicherverbrauch und Verständnisschwierigkeiten führen.
             <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               function fakultät(n) { <br>
               &nbsp;&nbsp;if (n &lt;= 1) return 1; // Basisfall <br>
               &nbsp;&nbsp;return n * fakultät(n - 1); // Rekursionsfall <br>
@@ -7150,21 +7535,36 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
               console.log(fakultät(5)); // Ausgabe: 120 <br>
               ```</span> <br>
             <br>
-            Eine Fakultät einer Zahl `n`, bezeichnet als `n!`, ist das Produkt aller positiven ganzen Zahlen kleiner
-            oder gleich `n`. Für `n = 5` ist die Fakultät also `5 * 4 * 3 * 2 * 1`. <br>
+            Eine Fakultät einer Zahl <span style="font-family: 'Consolas';">n</span>, bezeichnet
+            als <span style="font-family: 'Consolas';">n!</span>, ist das Produkt aller positiven
+            ganzen Zahlen kleiner
+            oder gleich <span style="font-family: 'Consolas';">n</span>. Für <span style="font-family: 'Consolas';">n =
+              5</span> ist die Fakultät also <span style="font-family: 'Consolas';">5 * 4 * 3 * 2 * 1</span>. <br>
             <br>
-            1. `fakultät(5)` wird aufgerufen und führt zu `5 * fakultät(4)`. <br>
-            2. `fakultät(4)` wird aufgerufen und führt zu `4 * fakultät(3)`. <br>
-            3. `fakultät(3)` wird aufgerufen und führt zu `3 * fakultät(2)`. <br>
-            4. `fakultät(2)` wird aufgerufen und führt zu `2 * fakultät(1)`. <br>
-            5. `fakultät(1)` ist der Basisfall und gibt `1` zurück, da `n &lt;= 1`. <br>
+            1. <span style="font-family: 'Consolas';">fakultät(5)</span> wird aufgerufen und
+            führt zu <span style="font-family: 'Consolas';">5 * fakultät(4)</span>. <br>
+            2. <span style="font-family: 'Consolas';">fakultät(4)</span> wird aufgerufen und
+            führt zu <span style="font-family: 'Consolas';">4 * fakultät(3)</span>. <br>
+            3. <span style="font-family: 'Consolas';">fakultät(3)</span> wird aufgerufen und
+            führt zu <span style="font-family: 'Consolas';">3 * fakultät(2)</span>. <br>
+            4. <span style="font-family: 'Consolas';">fakultät(2)</span> wird aufgerufen und
+            führt zu <span style="font-family: 'Consolas';">2 * fakultät(1)</span>. <br>
+            5. <span style="font-family: 'Consolas';">fakultät(1)</span> ist der Basisfall und
+            gibt <span style="font-family: 'Consolas';">1</span> zurück, da <span style="font-family: 'Consolas';">n
+              &lt;= 1</span>. <br>
             <br>
-            - `fakultät(2)` gibt `2 * 1 = 2` zurück. <br>
-            - `fakultät(3)` gibt `3 * 2 = 6` zurück. <br>
-            - `fakultät(4)` gibt `4 * 6 = 24` zurück. <br>
-            - `fakultät(5)` gibt schließlich `5 * 24 = 120` zurück. <br>
+            - <span style="font-family: 'Consolas';">fakultät(2)</span> gibt <span style="font-family: 'Consolas';">2 *
+              1 = 2</span> zurück. <br>
+            - <span style="font-family: 'Consolas';">fakultät(3)</span> gibt <span style="font-family: 'Consolas';">3 *
+              2 = 6</span> zurück. <br>
+            - <span style="font-family: 'Consolas';">fakultät(4)</span> gibt <span style="font-family: 'Consolas';">4 *
+              6 = 24</span> zurück. <br>
+            - <span style="font-family: 'Consolas';">fakultät(5)</span> gibt schließlich <span
+              style="font-family: 'Consolas';">5 * 24 = 120</span> zurück. <br>
             <br>
-            Somit ist die Ausgabe `120`, da dies das Produkt von `5 * 4 * 3 * 2 * 1` ist, was der Definition der
+            Somit ist die Ausgabe <span style="font-family: 'Consolas';">120</span>, da dies das
+            Produkt von <span style="font-family: 'Consolas';">5 * 4 * 3 * 2 * 1</span> ist, was
+            der Definition der
             Fakultät entspricht. <br>
           </p>
         </div>
@@ -7236,11 +7636,12 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Datentypen definieren die Art der Daten, die eine Variable halten kann, und bestimmen, welche Operationen
             mit diesen Daten ausgeführt werden können. Es gibt grundlegende (primitive) Datentypen und zusammengesetzte
             (nicht-primitive) Datentypen. <br>
-            - <b>Primitive Datentypen:</b> Inkludieren Ganzzahlen (`int`), Gleitkommazahlen (`float`,
-            `double`),
-            Wahrheitswerte (`boolean`) und Zeichen (`char`). Sie speichern einfache Werte. <br>
-            - <b>Nicht-primitive Datentypen:</b> Umfassen Klassen, Schnittstellen, Arrays und andere
-            Strukturen, die
+            - <b>Primitive Datentypen:</b> Inkludieren Ganzzahlen (<span style="font-family: 'Consolas';">int</span>),
+            Gleitkommazahlen (<span style="font-family: 'Consolas';">float</span>,
+            <span style="font-family: 'Consolas';">double</span>), Wahrheitswerte (<span
+              style="font-family: 'Consolas';">boolean</span>) und Zeichen (<span
+              style="font-family: 'Consolas';">char</span>). Sie speichern einfache Werte. <br>
+            - <b>Nicht-primitive Datentypen:</b> Umfassen Klassen, Schnittstellen, Arrays und andere Strukturen, die
             mehrere Werte und/oder komplexe Daten halten können. <br>
             <br>
             <b>Definition:</b> <br>
@@ -7248,7 +7649,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Initialisierung mit einem Wert. Die Syntax für die Definition einer Variablen variiert zwischen den
             Programmiersprachen, folgt aber in der Regel einem Muster, das den Typ, den Namen der Variablen und optional
             einen initialen Wert enthält <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```js <br>
+            <span style="font-family: 'Consolas';">```js <br>
               let age = 30; // Ganzzahl <br>
               let salary = 5000.75; // Gleitkommazahl <br>
               let isEmployed = true; // Wahrheitswert <br>
@@ -7298,19 +7699,23 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
           <p>
 
             Die Lebensdauer einer Variablen hängt von ihrem Scope ab. <br>
-            - <b>Globale Variablen</b> (`var` außerhalb einer Funktion) sind im gesamten Programm zugänglich.
+            - <b>Globale Variablen</b> (<span style="font-family: 'Consolas';">var</span> außerhalb einer Funktion) sind
+            im gesamten Programm zugänglich.
             <br>
-            - <b>Lokale Variablen</b> (`var` innerhalb einer Funktion) sind nur in der Funktion zugänglich, in
+            - <b>Lokale Variablen</b> (<span style="font-family: 'Consolas';">var</span> innerhalb einer Funktion) sind
+            nur in der Funktion zugänglich, in
             der sie
             deklariert wurden. <br>
-            - <b>Block-scoped Variablen</b> (`let` oder `const` innerhalb eines Blocks) sind nur innerhalb des
+            - <b>Block-scoped Variablen</b> (<span style="font-family: 'Consolas';">let</span> oder <span
+              style="font-family: 'Consolas';">const</span> innerhalb eines Blocks) sind nur
+            innerhalb des
             Blocks
             zugänglich, in dem sie deklariert wurden. <br>
             <br>
             <b>Globaler Scope:</b> <br>
             Eine Variable, die außerhalb aller Funktionen deklariert wird, befindet sich im globalen Scope. Sie ist
             überall im Code zugänglich. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               var globalVar = "Ich bin global"; <br>
               function testScope() { <br>
               &nbsp;&nbsp;console.log(globalVar); // Zugriff möglich: "Ich bin global" <br>
@@ -7319,9 +7724,11 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
               ```</span> <br>
             <br>
             <b>Funktions- (oder lokaler) Scope:</b> <br>
-            Variablen, die innerhalb einer Funktion mit `var` deklariert werden, haben einen Funktions-Scope und sind
+            Variablen, die innerhalb einer Funktion mit <span style="font-family: 'Consolas';">var</span> deklariert
+            werden, haben einen
+            Funktions-Scope und sind
             nur innerhalb dieser Funktion zugänglich. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               function testLocalScope() { <br>
               &nbsp;&nbsp;var localVar = "Ich bin lokal"; <br>
               &nbsp;&nbsp;console.log(localVar); // Zugriff möglich: "Ich bin lokal" <br>
@@ -7331,10 +7738,13 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
               ```</span> <br>
             <br>
             <b>Block-Scope:</b> <br>
-            Mit ES6 (ECMAScript 2015) wurden `let` und `const` eingeführt, um Variablen mit Block-Scope zu deklarieren.
-            Solche Variablen sind nur innerhalb des Blocks (z. B. innerhalb einer `if`-Bedingung oder einer
-            `for`-Schleife) zugänglich, in dem sie deklariert wurden. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            Mit ES6 (ECMAScript 2015) wurden <span style="font-family: 'Consolas';">let</span>
+            und <span style="font-family: 'Consolas';">const</span> eingeführt, um Variablen mit
+            Block-Scope zu deklarieren.
+            Solche Variablen sind nur innerhalb des Blocks (z. B. innerhalb einer <span
+              style="font-family: 'Consolas';">if</span>-Bedingung oder einer <span
+              style="font-family: 'Consolas';">for</span>-Schleife) zugänglich, in dem sie deklariert wurden. <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               if (true) { <br>
               &nbsp;&nbsp;let blockVar = "Ich bin block-scoped"; <br>
               &nbsp;&nbsp;console.log(blockVar); // Zugriff möglich: "Ich bin block-scoped" <br>
@@ -7358,13 +7768,13 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>For-Schleife:</b> wird verwendet, wenn die Anzahl der Wiederholungen im Voraus bekannt ist. Sie
             hat
             typischerweise drei Teile: <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```js <br>
+            <span style="font-family: 'Consolas';">```js <br>
               for(Initialisierung; Bedingung; Aktualisierung) { <br>
               &nbsp;&nbsp;Anweisung1; <br>
               &nbsp;&nbsp;Anweisung2; <br>
               } <br>
               ```</span> <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               for (let i = 0; i &lt; 5; i++) { <br>
               &nbsp;&nbsp;console.log(i); // Gibt 0, 1, 2, 3, 4 aus <br>
               } <br>
@@ -7373,7 +7783,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>While-Schleife:</b> führt einen Codeblock aus, solange die gegebene Bedingung wahr ist. Sie
             eignet sich für
             Situationen, in denen die Anzahl der Durchläufe nicht bekannt ist. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               let i = 0; <br>
               while (i &lt; 5) { <br>
               &nbsp;&nbsp;console.log(i); // Gibt 0, 1, 2, 3, 4 aus <br>
@@ -7384,7 +7794,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>Do-While-Schleife:</b> ähnelt der While-Schleife, mit dem Unterschied, dass der Codeblock
             mindestens einmal
             ausgeführt wird, bevor die Bedingung überprüft wird. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               let i = 0; <br>
               do { <br>
               &nbsp;&nbsp;console.log(i); // Gibt 0, 1, 2, 3, 4 aus <br>
@@ -7395,7 +7805,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>For-In-Schleife:</b> wird in JavaScript verwendet, um über die Eigenschaften eines Objekts zu
             iterieren.
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               const person = { firstName: "John", lastName: "Doe", age: 30 }; <br>
               for (let key in person) { <br>
               &nbsp;&nbsp;console.log(key, person[key]); <br>
@@ -7406,7 +7816,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>For-Of-Schleife:</b> wird in JavaScript verwendet, um über iterierbare Objekte wie Arrays,
             Strings usw. zu
             iterieren. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               const fruits = ["Apple", "Banana", "Cherry"]; <br>
               for (let fruit of fruits) { <br>
               &nbsp;&nbsp;console.log(fruit); <br>
@@ -7432,39 +7842,44 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <b>Kopfgesteuerte Schleife:</b> auch als Pre-Test-Schleife bekannt, überprüft die Bedingung, bevor
             der
             Codeblock innerhalb der Schleife zum ersten Mal ausgeführt wird. Wenn die Bedingung von Anfang an falsch
-            ist, wird der Codeblock innerhalb der Schleife überhaupt nicht ausgeführt. Die `for`- und `while`-Schleifen
-            in den meisten Programmiersprachen sind Beispiele für kopfgesteuerte Schleifen. <br>
+            ist, wird der Codeblock innerhalb der Schleife überhaupt nicht ausgeführt. Die <span
+              style="font-family: 'Consolas';">for</span>- und <span
+              style="font-family: 'Consolas';">while</span>-Schleifen in den meisten Programmiersprachen sind Beispiele
+            für kopfgesteuerte Schleifen. <br>
             z.B. Datenverarbeitung: Wenn eine Liste von Datenpunkten verarbeitet werden soll und vor der Verarbeitung
             jeder Datenpunkt überprüft werden muss, ob er bestimmten Kriterien entspricht. Beispielsweise könnte eine
             while-Schleife verwendet werden, um durch eine Liste von Benutzereingaben zu iterieren und bei der ersten
             ungültigen Eingabe die Schleife zu beenden <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               let i = 0; <br>
               while (i &lt; 5) { <br>
               &nbsp;&nbsp;console.log(i); <br>
               &nbsp;&nbsp;i++; <br>
               } <br>
               ```</span> <br>
-            In diesem Beispiel wird die Bedingung `i &lt; 5` überprüft, bevor der Codeblock der Schleife ausgeführt
-            wird. Wenn `i` von Beginn an größer oder gleich 5 wäre, würde der Codeblock nicht ausgeführt. <br>
+            In diesem Beispiel wird die Bedingung <span style="font-family: 'Consolas';">i &lt; 5</span> überprüft,
+            bevor der Codeblock der Schleife ausgeführt wird. Wenn <span style="font-family: 'Consolas';">i</span> von
+            Beginn an größer oder gleich 5 wäre, würde der Codeblock nicht ausgeführt. <br>
             <br>
-            <b>Fußgesteuerte Schleife:</b> auch als Post-Test-Schleife bekannt, führt den Codeblock innerhalb
-            der Schleife
-            mindestens einmal aus, bevor die Bedingung zum ersten Mal überprüft wird. Die Schleife wird fortgesetzt,
-            solange die Bedingung erfüllt ist. Die `do-while`-Schleife in vielen Programmiersprachen ist ein Beispiel
-            für eine fußgesteuerte Schleife. <br>
+            <b>Fußgesteuerte Schleife:</b> auch als Post-Test-Schleife bekannt, führt den Codeblock innerhalb der
+            Schleife mindestens einmal aus, bevor die Bedingung zum ersten Mal überprüft wird. Die Schleife wird
+            fortgesetzt, solange die Bedingung erfüllt ist. Die <span
+              style="font-family: 'Courier New', Courier, monospace;">do-while</span>-Schleife in vielen
+            Programmiersprachen ist ein Beispiel für eine fußgesteuerte Schleife. <br>
             z.B. Nutzereingaben validieren: Wenn zumindest einmal eine Eingabe vom Benutzer verlangt wird und diese
             Eingabe validiert werden muss. Eine do-while-Schleife stellt sicher, dass der Nutzer mindestens einmal zur
             Eingabe aufgefordert wird und die Eingabe so lange wiederholt wird, bis sie valide ist. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               let i = 0; <br>
               do { <br>
               &nbsp;&nbsp;console.log(i); <br>
               &nbsp;&nbsp;i++; <br>
               } while (i &lt; 5); <br>
               ```</span> <br>
-            Hier wird der Codeblock der Schleife mindestens einmal ausgeführt, bevor die Bedingung `i &lt; 5` überprüft
-            wird. Selbst wenn `i` initial größer oder gleich 5 wäre, würde der Codeblock einmal ausgeführt. <br>
+            Hier wird der Codeblock der Schleife mindestens einmal ausgeführt, bevor die Bedingung <span
+              style="font-family: 'Courier New', Courier, monospace;">i &lt; 5</span> überprüft wird. Selbst wenn <span
+              style="font-family: 'Consolas';">i</span> initial größer oder gleich 5 wäre, würde der Codeblock einmal
+            ausgeführt. <br>
           </p>
         </div>
         <div class="textcard" id="quest194">
@@ -7485,12 +7900,13 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             <br>
             <b>Verzweigungen (Conditional Statements):</b> erlauben einem Programm, Entscheidungen zu treffen
             und
-            verschiedene Aktionen auszuführen, je nachdem, ob eine oder mehrere Bedingungen wahr (`true`) oder falsch
-            (`false`) sind. <br>
+            verschiedene Aktionen auszuführen, je nachdem, ob eine oder mehrere Bedingungen wahr (<span
+              style="font-family: 'Consolas';">true</span>) oder falsch
+            (<span style="font-family: 'Consolas';">false</span>) sind. <br>
             - <b>if-Anweisung:</b> Die grundlegendste Form der Verzweigung. Führt einen Codeblock aus, wenn
             eine bestimmte
             Bedingung wahr ist. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               if (bedingung) { <br>
               &nbsp;&nbsp;// Code, der ausgeführt wird, wenn bedingung wahr ist <br>
               } <br>
@@ -7499,7 +7915,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             - <b>if-else-Anweisung:</b> Ermöglicht die Ausführung eines alternativen Codeblocks, wenn die
             Bedingung falsch
             ist. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               if (bedingung) { <br>
               &nbsp;&nbsp;// Code, der ausgeführt wird, wenn bedingung wahr ist <br>
               } else { <br>
@@ -7508,7 +7924,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
               ```</span> <br>
             <br>
             - <b>if-else-if-Ladder:</b> Erlaubt mehrere Bedingungen nacheinander zu überprüfen. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               if (bedingung1) { <br>
               &nbsp;&nbsp;// Code für bedingung1 <br>
               } else if (bedingung2) { <br>
@@ -7522,7 +7938,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             ermöglicht,
             basierend auf dem Wert einer Variable oder eines Ausdrucks unterschiedliche Codeblöcke auszuführen. Sie sind
             besonders nützlich, wenn mehrere Bedingungen gegen denselben Wert geprüft werden müssen. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               switch (ausdruck) { <br>
               &nbsp;&nbsp;case wert1: <br>
               &nbsp;&nbsp;&nbsp;&nbsp;// Code, der ausgeführt wird, wenn ausdruck gleich wert1 ist <br>
@@ -7574,7 +7990,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Klassen-Syntax unterstützt, die mit ES6 (ECMAScript 2015) eingeführt wurde. Die Klassen-Syntax in JavaScript
             bietet eine klarere und vertrautere Syntax für die Objektorientierung, besonders für Entwickler, die aus
             anderen OOP-Sprachen kommen. <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```javascript <br>
+            <span style="font-family: 'Consolas';">```javascript <br>
               // Definition einer Basisklasse <br>
               class Fahrzeug { <br>
               &nbsp;&nbsp;constructor(marke) { <br>
@@ -7591,7 +8007,8 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
               &nbsp;&nbsp;&nbsp;&nbsp;this.anzahlTueren = anzahlTueren; <br>
               &nbsp;&nbsp;} <br>
               &nbsp;&nbsp;zeigeDetails() { <br>
-              &nbsp;&nbsp;&nbsp;&nbsp;console.log(`Marke: ${this.marke}, Türen: ${this.anzahlTueren}`); <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;console.log(<span style="font-family: 'Consolas';">Marke: ${this.marke}, Türen:
+                ${this.anzahlTueren}</span>); <br>
               &nbsp;&nbsp;} <br>
               } <br>
               const meinAuto = new Auto('Tesla', 4); <br>
@@ -7599,16 +8016,24 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
               meinAuto.zeigeDetails(); // Ausgabe: Marke: Tesla, Türen: 4 <br>
               ```</span> <br>
             <br>
-            - <b>Fahrzeug</b> ist eine Basisklasse mit einem Konstruktor, der die `marke` des Fahrzeugs
+            - <b>Fahrzeug</b> ist eine Basisklasse mit einem Konstruktor, der die <span
+              style="font-family: 'Consolas';">marke</span> des Fahrzeugs
             initialisiert, und
-            einer Methode `hupen`. <br>
-            - <b>Auto</b> ist eine abgeleitete Klasse, die von `Fahrzeug` erbt. Es verwendet `super(marke)` im
+            einer Methode <span style="font-family: 'Consolas';">hupen</span>. <br>
+            - <b>Auto</b> ist eine abgeleitete Klasse, die von <span style="font-family: 'Consolas';">Fahrzeug</span>
+            erbt. Es verwendet <span style="font-family: 'Consolas';">super(marke)</span> im
             Konstruktor,
-            um den Konstruktor der Basisklasse aufzurufen und die Marke zu initialisieren. `Auto` fügt auch ein neues
-            Attribut `anzahlTueren` hinzu und definiert eine eigene Methode `zeigeDetails`, um Details über das Auto
+            um den Konstruktor der Basisklasse aufzurufen und die Marke zu initialisieren. <span
+              style="font-family: 'Consolas';">Auto</span> fügt auch ein neues
+            Attribut <span style="font-family: 'Consolas';">anzahlTueren</span> hinzu und
+            definiert eine eigene Methode <span style="font-family: 'Consolas';">zeigeDetails</span>, um Details über
+            das Auto
             anzuzeigen. <br>
-            - Die Instanz `meinAuto` der Klasse `Auto` demonstriert die Verwendung dieser Klasse. Sie kann Methoden der
-            Basisklasse (`hupen`) und Methoden der abgeleiteten Klasse (`zeigeDetails`) aufrufen. <br>
+            - Die Instanz <span style="font-family: 'Consolas';">meinAuto</span> der Klasse <span
+              style="font-family: 'Consolas';">Auto</span> demonstriert die Verwendung dieser
+            Klasse. Sie kann Methoden der
+            Basisklasse (<span style="font-family: 'Consolas';">hupen</span>) und Methoden der abgeleiteten Klasse
+            (<span style="font-family: 'Consolas';">zeigeDetails</span>) aufrufen. <br>
           </p>
         </div>
       </div>
@@ -7869,9 +8294,11 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Mehrfachspeicherungen. <br>
             <br>
             <b>Strategien:</b> <br>
-            Ein Unternehmen hat eine `Bestellungen`-Tabelle, die alle Details jeder Bestellung enthält, einschließlich
-            Kundenname, Adresse und bestellte Produkte. Durch die Normalisierung werden separate Tabellen für `Kunden`,
-            `Produkte` und eine Verknüpfungstabelle `Bestellte_Produkte` erstellt, die nur Referenzen auf die
+            Ein Unternehmen hat eine <span style="font-family: 'Consolas';">Bestellungen</span>-Tabelle, die alle
+            Details jeder Bestellung enthält, einschließlich Kundenname, Adresse und bestellte Produkte. Durch die
+            Normalisierung werden separate Tabellen für <span style="font-family: 'Consolas';">Kunden</span>, <span
+              style="font-family: 'Consolas';">Produkte</span> und eine Verknüpfungstabelle <span
+              style="font-family: 'Consolas';">Bestellte_Produkte</span> erstellt, die nur Referenzen auf die
             entsprechenden Einträge in den anderen Tabellen enthält. Dadurch wird Redundanz verringert und die
             Datenintegrität verbessert. <br>
 
@@ -7922,7 +8349,7 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Diese Operationen bilden das Grundgerüst für die Interaktion mit relationalen Datenbanken und ermöglichen
             eine effiziente Datenverwaltung und -manipulation. <br>
             <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```sql <br>
+            <span style="font-family: 'Consolas';">```sql <br>
               -- <b>Datenbankstruktur Erstellen (CREATE):</b> <br>
               CREATE TABLE Tabelle (Spalte1 Datentyp, Spalte2 Datentyp); <br>
               -- <b>Daten Einfügen (INSERT INTO):</b> <br>
@@ -8064,11 +8491,12 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             - <b>Eindeutige Daten:</b> Um die Einzigartigkeit von Daten in bestimmten Spalten zu erzwingen.
             <br>
             <br>
-            <b>Erstellen eines Indexes:</b> In SQL kann ein Index mit der `CREATE INDEX`-Anweisung erstellt
-            werden.
-            Beispielsweise erstellt der folgende Befehl einen Index namens `index_name` für die Spalte `column_name` in
-            der Tabelle `table_name`: <br>
-            <span style="font-family: 'Courier New', Courier, monospace;">```sql <br>
+            <b>Erstellen eines Indexes:</b> In SQL kann ein Index mit der <span style="font-family: 'Consolas';">CREATE
+              INDEX</span>-Anweisung erstellt werden. Beispielsweise erstellt der folgende Befehl einen Index namens
+            <span style="font-family: 'Consolas';">index_name</span> für die Spalte <span
+              style="font-family: 'Consolas';">column_name</span> in der Tabelle <span
+              style="font-family: 'Consolas';">table_name</span>: <br>
+            <span style="font-family: 'Consolas';">```sql <br>
               CREATE INDEX index_name ON table_name (column_name); <br>
               ```</span> <br>
           </p>
@@ -8906,6 +9334,14 @@ Diese Verbesserungen zielen darauf ab, den Leitfaden umfassender, benutzerfreund
             Tools und Plattformen hinweg. <br>
             - Kubernetes (für containerisierte Tests), Bamboo <br>
           </p>
+        </div>
+      </div>
+      <br>
+      <!-- Uebungsbeispiel -->
+      <h2 id="lapcard19">#18 Uebungsbeispiel</h2>
+      <div class="notecard">
+        <div class="textcard" id="quest237">
+
         </div>
       </div>
       <br>
