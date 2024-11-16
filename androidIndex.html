@@ -15,6 +15,7 @@
     }
 
     html {
+      scroll-behavior: smooth;
       color-scheme: light;
       /* Default to light mode */
       background-color: var(--background-color, #FCFCFC);
@@ -150,7 +151,7 @@
       position: fixed;
       font-size: xx-large;
       font-weight: bold;
-      bottom: 100px;
+      bottom: 20px;
       right: 20px;
       padding: 12px 24px 12px 24px;
       text-decoration: none;
@@ -160,9 +161,17 @@
     }
 
     .downbutton a {
-      bottom: 20px;
+      bottom: 100px;
     }
 
+    /* visited link */
+    a:visited {
+      color: rgb(0, 133, 66);
+    }
+    .topbutton a:visited {
+      color: #ffffff;
+    }
+    
     a {
       display: inline;
       text-decoration: none;
@@ -1818,9 +1827,6 @@
 
     <div class="topbutton">
       <a href="#top">&#8679;</a>
-    </div>
-    <div class="downbutton">
-      <a href="#quest227">&#8681;</a>
     </div>
   </footer>
 
