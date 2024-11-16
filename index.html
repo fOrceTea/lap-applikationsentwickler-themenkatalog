@@ -14,349 +14,375 @@
 
 <body>
 
+  <section>
+    <label class="switch">
+      <input type="checkbox" id="toggleButton">
+      <span class="slider round"></span>
+    </label>
+    <script>
+      const button = document.getElementById('toggleButton');
+      let isDarkMode = false;
+
+      button.addEventListener('click', () => {
+        isDarkMode = !isDarkMode;
+
+        if (isDarkMode) {
+          document.documentElement.style.setProperty('--background-color', '#080808');
+          document.documentElement.style.setProperty('--text-color', '#FCFCFC');
+          button.textContent = 'Switch to Light Mode';
+        } else {
+          document.documentElement.style.setProperty('--background-color', '#FCFCFC');
+          document.documentElement.style.setProperty('--text-color', '#080808');
+          button.textContent = 'Switch to Dark Mode';
+        }
+      });
+    </script>
+
+  </section>
+
 
   <header>
-    
-      <div id="navbtntable">
 
-        <h2><a href="https://www.wko.at/ooe/bildung-lehre/themenkatalog-applikationsentwicklung-coding-v2-2024.pdf" target="_blank">Themen- katalog WKO</a>
-        </h2>
+    <div id="navbtntable">
 
-        <ul id="questlist">
-          <div>
-            <li><a href="#lapcard41">Lehrjahr 1: Grundlagen und Einführung</a></li>
-            <li><a href="#lapcard42">Lehrjahr 2: Vertiefung und Anwendung</a></li>
-            <li><a href="#lapcard43">Lehrjahr 3: Vertiefung und Spezialisierung</a></li>
-            <li><a href="#lapcard44">Lehrjahr 4: Abschluss und Spezialisierung</a></li>
-          </div>
+      <h2><a href="https://www.wko.at/ooe/bildung-lehre/themenkatalog-applikationsentwicklung-coding-v2-2024.pdf" target="_blank">Themenkatalog WKO</a>
+      </h2>
+
+      <ul id="questlist">
+        <div>
+          <li><a href="#lapcard41">Lehrjahr 1: Grundlagen und Einführung</a></li>
+          <li><a href="#lapcard42">Lehrjahr 2: Vertiefung und Anwendung</a></li>
+          <li><a href="#lapcard43">Lehrjahr 3: Vertiefung und Spezialisierung</a></li>
+          <li><a href="#lapcard44">Lehrjahr 4: Abschluss und Spezialisierung</a></li>
+        </div>
+      </ul>
+
+      <ul>
+        <li><a href="#lapcard01">#01 Grundlagen in der Informationstechnik</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest001">#001 Kenntnis des Zeichensatzes ASCII</a></li>
+          <li><a href="#quest002">#002 Kenntnis der Einheiten Bit, Byte</a></li>
+          <li><a href="#quest003">#003 Kenntnis der Begriffe Gigabyte, Terabyte, Petabyte, Exabyte</a></li>
+          <li><a href="#quest004">#004 Kenntnis der Begriffe Gibibyte, Tebibyte, Pebibyte, Exbibyte</a></li>
+          <li><a href="#quest005">#005 Kenntnis der gebräuchlichen Zahlensysteme in der IT</a></li>
+          <li><a href="#quest006">#006 Umwandlung zwischen Binär-, Dezimal- und Hexadezimalzahlen</a></li>
+          <li><a href="#quest007">#007 Kenntnis der Logik-Schaltungen (AND, OR, XOR, NOT) und deren
+              Wahrheitstabellen</a></li>
         </ul>
-
-        <ul>
-          <li><a href="#lapcard01">#01 Grundlagen in der Informationstechnik</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest001">#001 Kenntnis des Zeichensatzes ASCII</a></li>
-            <li><a href="#quest002">#002 Kenntnis der Einheiten Bit, Byte</a></li>
-            <li><a href="#quest003">#003 Kenntnis der Begriffe Gigabyte, Terabyte, Petabyte, Exabyte</a></li>
-            <li><a href="#quest004">#004 Kenntnis der Begriffe Gibibyte, Tebibyte, Pebibyte, Exbibyte</a></li>
-            <li><a href="#quest005">#005 Kenntnis der gebräuchlichen Zahlensysteme in der IT</a></li>
-            <li><a href="#quest006">#006 Umwandlung zwischen Binär-, Dezimal- und Hexadezimalzahlen</a></li>
-            <li><a href="#quest007">#007 Kenntnis der Logik-Schaltungen (AND, OR, XOR, NOT) und deren
-                Wahrheitstabellen</a></li>
-          </ul>
-          <li><a href="#lapcard02">#02 Betriebssysteme und Software</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest008">#008 Fachbegriff Betriebssystem</a></li>
-            <li><a href="#quest009">#009 Kenntnis der am Markt führend verbreiteten Betriebssysteme</a></li>
-            <li><a href="#quest010">#010 Kenntnis über Desktop-Betriebssysteme</a></li>
-            <li><a href="#quest011">#011 Fachbegriff Firmware</a></li>
-            <li><a href="#quest012">#012 Fachbegriffe Systemprogramm, Anwendungsprogramm</a></li>
-            <li><a href="#quest013">#013 Fachbegriff Multitasking-Betriebssystem</a></li>
-            <li><a href="#quest014">#014 Fachbegriffe Single-User-System, Multi-User-System</a></li>
-            <li><a href="#quest015">#015 Kenntnis über die Powershell (inkl. einfacher Befehle)</a></li>
-            <li><a href="#quest016">#016 Kenntnisse über grafische Oberflächen unter Linux</a></li>
-            <li><a href="#quest017">#017 Fachbegriff Dateisystem</a></li>
-          </ul>
-          <li><a href="#lapcard03">#03 Betreuung von mobiler Hardware</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest018">#018 Technische Merkmale von Smartphones</a></li>
-            <li><a href="#quest019">#019 Technische Merkmale von Tablets</a></li>
-            <li><a href="#quest020">#020 Kenntnisse über Android</a></li>
-            <li><a href="#quest021">#021 Kenntnisse über IOS</a></li>
-            <li><a href="#quest022">#022 Fachbegriff QR-Code</a></li>
-            <li><a href="#quest023">#023 Vor- und Nachteile von geschlossenen Systemen mit Betriebssystem und
-                App-Store</a></li>
-          </ul>
-          <li><a href="#lapcard04">#04 Technische Dokumentationen / Projektarbeit / Schulungen</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest024">#024 Aufgabe und Strukturierung von Testläufen</a></li>
-            <li><a href="#quest025">#025 Protokollieren technischer Arbeiten</a></li>
-            <li><a href="#quest026">#026 Inhalt einer technischen Dokumentation / technisches Protokoll (z.B. FAQ,
-                …)</a></li>
-            <li><a href="#quest027">#027 Aufbereitung einer technischen Dokumentation / technisches Protokoll</a></li>
-            <li><a href="#quest028">#028 Kenntnis über Abläufe und Prozess schritte zum Roll-out von Applikationen</a>
-            </li>
-            <li><a href="#quest029">#029 Gestaltung und Vorbereitung von Präsentationen</a></li>
-          </ul>
-          <li><a href="#lapcard05">#05 Gesetzliche Bestimmungen</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest030">#030 Kenntnis über DSGVO</a></li>
-            <li><a href="#quest031">#031 Fachbegriff "Datenminimierung" im Zusammenhang der DSGVO</a></li>
-            <li><a href="#quest032">#032 Fachbegriffe "betroffene Personen", Verantwortlicher, Auftragsverarbeiter</a>
-            </li>
-            <li><a href="#quest033">#033 Kenntnis über Rechte von "betroffene Personen" lt. DSGVO</a></li>
-            <li><a href="#quest034">#034 Fachbegriff "personenbezogene und sensible Daten" lt. DSGVO</a></li>
-            <li><a href="#quest035">#035 Bedeutung von Kopplungsverbot beim DSGVO</a></li>
-            <li><a href="#quest036">#036 Datenschutz beauftragter lt. DSGVO und dessen Funktion</a></li>
-            <li><a href="#quest037">#037 Pflichten für Unternehmen bei bekannt gewordenen Datendiebstahl lt. DSGVO</a>
-            </li>
-            <li><a href="#quest038">#038 Kenntnisse über Grundbegriffe und Gültigkeitsbereich des Urheberrechtes</a>
-            </li>
-            <li><a href="#quest039">#039 Kenntnis gesetzlicher Gewährleistungs- und Garantie- Bestimmungen und deren
-                unterschiedlicher Anwendung bei Hardware- und Softwareproblemen</a></li>
-            <li><a href="#quest040">#040 Kenntnisse über umweltgerechte Entsorgung von Elektronikschrott, Toner, Akkus
-                oder Batterien</a></li>
-            <li><a href="#quest041">#041 Kenntnisse über das E-Commerce-Gesetz (ECG)</a></li>
-            <li><a href="#quest042">#042 Kenntnisse über das Telekom-Gesetz (TKG)</a></li>
-            <li><a href="#quest043">#043 Kenntnisse über Pflichtangaben eines Homepage-Betreibers (Impressum)</a></li>
-            <li><a href="#quest044">#044 Kenntnisse über Pflichtangaben beim E-Mail-Verkehr von Unternehmen</a></li>
-            <li><a href="#quest045">#045 Kenntnisse über die gesetzliche Einhaltung von Bildschirmpausen</a></li>
-          </ul>
-          <li><a href="#lapcard06">#06 Netzwerkdienste</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest046">#046 Fachbegriffe Domain, Sub-Domain und Top-Level-Domain</a></li>
-            <li><a href="#quest047">#047 Kenntnis der Web-Protokolle HTTP und HTTPS</a></li>
-            <li><a href="#quest048">#048 Funktionsprinzip eines Mail-Servers</a></li>
-            <li><a href="#quest049">#049 Kenntnis des Mail-Protokolls POP3/POP3S</a></li>
-            <li><a href="#quest050">#050 Kenntnis des Mail-Protokolls IMAP/IMAPS</a></li>
-            <li><a href="#quest051">#051 Kenntnis des Mail-Protokolls SMTP/SMTPS</a></li>
-            <li><a href="#quest052">#052 Kenntnisse über FTP/FTPS</a></li>
-            <li><a href="#quest053">#053 Kenntnisse über SSL</a></li>
-            <li><a href="#quest054">#054 Fachbegriff Cloud-Computing</a></li>
-            <li><a href="#quest055">#055 Kenntnisse über Private / Public / Hybrid Cloud</a></li>
-            <li><a href="#quest056">#056 Fachbegriffe IaaS, PaaS, SaaS</a></li>
-            <li><a href="#quest057">#057 Beispiele für marktbekannte Cloud-Dienste</a></li>
-            <li><a href="#quest058">#058 Kriterien und Voraussetzungen für den Einsatz von Cloud-Diensten</a></li>
-          </ul>
-          <li><a href="#lapcard07">#07 IT-Security</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest059">#059 Kenntnisse über Gefahren von Viren, Würmern, Trojanern, Spyware, Hackern und
-                Phishing</a></li>
-            <li><a href="#quest060">#060 Fachbegriff Zero-Day-Exploit</a></li>
-            <li><a href="#quest061">#061 Kenntnisse über Einschränkungs möglichkeiten bei Benutzerkonten</a></li>
-            <li><a href="#quest062">#062 Funktion einer Software-Firewall</a></li>
-            <li><a href="#quest063">#063 Kenntnisse über Möglichkeiten Client-PCs vor Missbrauch zu schützen</a></li>
-            <li><a href="#quest064">#064 Kenntnisse über sichere Planung von Backups</a></li>
-            <li><a href="#quest065">#065 Kenntnisse über verschiedene Backup-Prinzipien</a></li>
-            <li><a href="#quest066">#066 Kenntnisse über Backup-Medien und deren richtiger Lagerung</a></li>
-          </ul>
-          <li><a href="#lapcard08">#08 Informatik und Gesellschaft</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest067">#067 Fachbegriff Big-Data</a></li>
-            <li><a href="#quest068">#068 Fachbegriff Web 2.0</a></li>
-            <li><a href="#quest069">#069 Fachbegriff Industrie 4.0</a></li>
-            <li><a href="#quest070">#070 Fachbegriff IoT</a></li>
-            <li><a href="#quest071">#071 Kenntnisse über Vor- und Nachteile bei Nutzung von Sprachassistenten</a></li>
-            <li><a href="#quest072">#072 Kenntnisse über e-Government, digitale Signatur und Handy-Signatur</a></li>
-            <li><a href="#quest073">#073 Schutzmöglichkeiten vor Cookie-Tracking und Cookieless-Tracking</a></li>
-            <li><a href="#quest074">#074 Kenntnisse über die Gefahr von Identitätsdiebstahl</a></li>
-            <li><a href="#quest075">#075 Fachbegriff Netzneutralität</a></li>
-            <li><a href="#quest076">#076 Kenntnisse über Vor- und Nachteile bei Nutzung von biometrischen Daten</a></li>
-            <li><a href="#quest077">#077 Inhalte von Unternehmens richtlinien für Nutzung von sozialen Netzwerken</a>
-            </li>
-          </ul>
-          <li><a href="lapcard09">#09 Ergonomische Gestaltung eines Arbeitsplatzes</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest078">#078 Kenntnisse über die ergonomische Einrichtung eines Bildschirm
-                arbeitsplatzes</a></li>
-            <li><a href="#quest079">#079 Kenntnisse über den optimalen Aufstellungsort von Bildschirmen
-                (Lichteinfall)</a></li>
-            <li><a href="#quest080">#080 Kenntnisse der gesetzlichen Bestimmungen von Pausen bei Bildschirmarbeit</a>
-            </li>
-            <li><a href="#quest081">#081 Kenntnisse über die ideale Höhe von Tisch/Tastatur, Bildschirmoberkante und
-                Bildschirmabstand zum Benutzer</a></li>
-            <li><a href="#quest082">#082 Kenntnisse über Schutzmaßnahmen zur Vorbeugung körperlicher Schäden bei
-                sitzender Tätigkeit</a></li>
-            <li><a href="#quest083">#083 Kenntnisse über körperliche Entspannungsübungen bei sitzender Tätigkeit</a>
-            </li>
-          </ul>
-          <li><a href="#lapcard10">#10 Fachberatung, Planung</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest084">#084 Führen von fachspezifischen Verkaufsgesprächen, Produktberatung, Kompetenz,
-                technische Zusammenhänge beratend erklären zu können</a></li>
-            <li><a href="#quest085">#085 Beratung und Erstellen kundenorientierter Softwarelösungen</a></li>
-            <li><a href="#quest086">#086 Kenntnisse über richtigen Umgang bei Reklamationen</a></li>
-            <li><a href="#quest087">#087 Richtiger Kundenumgang bei folgenreichen technischen Problemen</a></li>
-          </ul>
-          <li><a href="#lapcard11">#11 Informatik</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest088">#088 Fachbegriff Informatik</a></li>
-            <li><a href="#quest089">#089 Typen von Webseiten</a></li>
-            <li><a href="#quest090">#090 Fachbegriffe Weblog, Webshop, Web-Plattform</a></li>
-            <li><a href="#quest091">#091 Auszeichnungs sprachen HTML, XML -> Fachbegriff und Einsatzgebiet</a></li>
-            <li><a href="#quest092">#092 Kenntnisse über das HTML5-Grundgerüst mit den wichtigsten Bestandteilen</a>
-            </li>
-            <li><a href="#quest093">#093 Fachbegriff Meta-Element/Metadaten</a></li>
-            <li><a href="#quest094">#094 Fachbegriff SEO und Maßnahmen</a></li>
-            <li><a href="#quest095">#095 Fachbegriff Cascading StyleSheets und deren Einsatz</a></li>
-            <li><a href="#quest096">#096 Scripting</a></li>
-            <li><a href="#quest097">#097 Software zum Erstellen und Betrachten von Webseiten</a></li>
-            <li><a href="#quest098">#098 Fachbegriff CMS</a></li>
-            <li><a href="#quest099">#099 Unterschied LIFO/FIFO-Prinzip</a></li>
-            <li><a href="#quest100">#100 Fachbegriffe Stack und Queue</a></li>
-            <li><a href="#quest101">#101 Fachbegriff Userinterface</a></li>
-            <li><a href="#quest102">#102 Fachbegriff Zeichencodierung</a></li>
-            <li><a href="#quest103">#103 Standards ANSI, ISO, IEEE</a></li>
-            <li><a href="#quest104">#104 Fachbegriff Frame</a></li>
-            <li><a href="#quest105">#105 Fachbegriff Webservices</a></li>
-            <li><a href="#quest106">#106 Kenntnisse über Standards (SOAP, WSDL, …)</a></li>
-            <li><a href="#quest107">#107 Fachbegriff Rest API</a></li>
-            <li><a href="#quest108">#108 Fachbegriff JSON</a></li>
-            <li><a href="#quest109">#109 Fachbegriff Agile Softwareentwicklung</a></li>
-            <li><a href="#quest110">#110 Fachbegriff Reaktive Programmierung</a></li>
-            <li><a href="#quest111">#111 Kenntnisse über Frameworks</a></li>
-            <li><a href="#quest112">#112 Einsatzgebiete Angular JS</a></li>
-            <li><a href="#quest113">#113 Einsatzgebiete Bootstrap</a></li>
-            <li><a href="#quest114">#114 Einsatzgebiet jQuery</a></li>
-            <li><a href="#quest115">#115 Kenntnisse über den Zugriff PHP auf mySQL-Datenbank</a></li>
-            <li><a href="#quest116">#116 Fachbegriff Multitasking</a></li>
-            <li><a href="#quest117">#117 Kenntnisse über mobile Webseiten / Optimierung für Smartphones</a></li>
-            <li><a href="#quest118">#118 Fachbegriff Responsive Webdesign, Umsetzung</a></li>
-            <li><a href="#quest119">#119 Kenntnisse über Konzept Mobile First</a></li>
-            <li><a href="#quest120">#120 Kenntnisse über aktuelle Programmiersprachen</a></li>
-            <li><a href="#quest121">#121 Kenntnisse über Programmiersprachen für mobile Anwendungen / Internet</a></li>
-            <li><a href="#quest122">#122 Kenntnisse über die Anwendung von JAVA-Technologien im Web</a></li>
-            <li><a href="#quest123">#123 Grundkenntnisse über die Anwendung der .NET-Technologien im Web (ASP.NET)</a>
-            </li>
-            <li><a href="#quest124">#124 Fachbegriff Metadaten</a></li>
-            <li><a href="#quest125">#125 Prinzipien der Software entwicklung: KISS, DRY</a></li>
-            <li><a href="#quest126">#126 Kenntnisse über Coding-Standards/Code-Konventionen</a></li>
-            <li><a href="#quest127">#127 Fachbegriff Cross Plattform Entwicklung</a></li>
-            <li><a href="#quest128">#128 Fachbegriff Corporate Identity (CI)</a></li>
-            <li><a href="#quest129">#129 Fachbegriff Corporate Design (CD)</a></li>
-            <li><a href="#quest130">#130 CI/CD Vorgaben bei der Applikations entwicklung</a></li>
-          </ul>
-          <li><a href="#lapcard12">#12 Projektmanagement</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest131">#131 Fachbegriff Projektmanagement</a></li>
-            <li><a href="#quest132">#132 Definition von Projekten</a></li>
-            <li><a href="#quest133">#133 Fachbegriff Pflichtenheft und notwendiger Inhalt</a></li>
-            <li><a href="#quest134">#134 Fachbegriff Lastenheft und notwendiger Inhalt</a></li>
-            <li><a href="#quest135">#135 Kenntnisse über Spannungsfelder in einem Projekt</a></li>
-            <li><a href="#quest136">#136 Kenntnisse über den Fachbegriff Primäres Projektziel</a></li>
-            <li><a href="#quest137">#137 Kenntnisse über Vor- und Nachteile einer Projektorganisation</a></li>
-            <li><a href="#quest138">#138 Ziel einer Projekt dokumentation</a></li>
-            <li><a href="#quest139">#139 Fachbegriff Struktogramm</a></li>
-            <li><a href="#quest140">#140 Fachbegriff Ablaufdiagramm (Flowchart)</a></li>
-            <li><a href="#quest141">#141 Kenntnisse über wesentliche Schritte einer Projektplanung</a></li>
-            <li><a href="#quest142">#142 Kenntnisse über Eigenschaften eines Projektleiters</a></li>
-            <li><a href="#quest143">#143 Aufgaben eines Projektleiters</a></li>
-            <li><a href="#quest144">#144 Kenntnisse über Dokumentationen eines Projektes</a></li>
-            <li><a href="#quest145">#145 Fachbegriff Projektauftrag</a></li>
-            <li><a href="#quest146">#146 Fachbegriff Projektstrukturplan</a></li>
-            <li><a href="#quest147">#147 Fachbegriff Arbeitspaket</a></li>
-            <li><a href="#quest148">#148 Fachbegriff Meilenstein</a></li>
-            <li><a href="#quest149">#149 Unterschiede internes/externes Projekt</a></li>
-            <li><a href="#quest150">#150 Kenntnis Projekt kostenplanung</a></li>
-          </ul>
-          <li><a href="#lapcard13">#13 Projektmethoden, Tools</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest151">#151 Kenntnisse über Software prozess modelle</a></li>
-            <li><a href="#quest152">#152 Kenntnisse über den Aufbau des Wasserfallmodells</a></li>
-            <li><a href="#quest153">#153 Kenntnisse über Agiles Projektmanagement / Methoden</a></li>
-            <li><a href="#quest154">#154 Fachbegriff DevOps</a></li>
-            <li><a href="#quest155">#155 Fachbegriff Scrummaster</a></li>
-            <li><a href="#quest156">#156 Fachbegriff Productowner</a></li>
-            <li><a href="#quest157">#157 Fachbegriff Backlog</a></li>
-            <li><a href="#quest158">#158 Fachbegriff Sprint</a></li>
-            <li><a href="#quest159">#159 Fachbegriff Stakeholder</a></li>
-            <li><a href="#quest160">#160 Fachbegriff Daily Scrum/Daily Standup</a></li>
-            <li><a href="#quest161">#161 Fachbegriff User Story/Story Board</a></li>
-            <li><a href="#quest162">#162 Probleme, die beim Wasserfallmodell auftreten können</a></li>
-            <li><a href="#quest163">#163 Kenntnisse über den Aufbau des V-Modells</a></li>
-            <li><a href="#quest164">#164 Kenntnisse über Vor- und Nachteile des V-Modells</a></li>
-            <li><a href="#quest165">#165 Fachbegriff Softwareentwurf</a></li>
-            <li><a href="#quest166">#166 Fachbegriff Prototyp</a></li>
-            <li><a href="#quest167">#167 Fachbegriff Soll-Ist-Analyse</a></li>
-            <li><a href="#quest168">#168 Fachbegriff Versionsverwaltung</a></li>
-          </ul>
-          <li><a href="#lapcard14">#14 Qualitätssicherung</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest169">#169 Kenntnisse über den Zweck von Code-Reviews</a></li>
-            <li><a href="#quest170">#170 Fachbegriff Schreibtischtest</a></li>
-            <li><a href="#quest171">#171 Kenntnisse über Black-Box-Test/White-Box-Test, wesentliche Unterschiede</a>
-            </li>
-            <li><a href="#quest172">#172 Kenntnisse über wichtige Qualitätsmerkmale der Software funktionalität</a></li>
-            <li><a href="#quest173">#173 Kenntnisse über Changemanagement</a></li>
-            <li><a href="#quest174">#174 Fachbegriff Versionierung und deren Nutzen</a></li>
-            <li><a href="#quest175">#175 Kenntnisse über Problemmanagement</a></li>
-          </ul>
-          <li><a href="lapcard15">#15 Grundkenntnisse des Programmierens</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest176">#176 Stadien der Softwareentwicklung</a></li>
-            <li><a href="#quest177">#177 Fachbegriffe Prozedurale Programmierung, Objektorientierte Programmierung,
-                Unterschiede</a></li>
-            <li><a href="#quest178">#178 Fachbegriff Algorithmus</a></li>
-            <li><a href="#quest179">#179 Fachbegriff Pseudocode</a></li>
-            <li><a href="#quest180">#180 Kenntnisse über Sortieralgorithmen</a></li>
-            <li><a href="#quest181">#181 Kenntnisse über Suchalgorithmen</a></li>
-            <li><a href="#quest182">#182 Ablauf der Programmentwicklung</a></li>
-            <li><a href="#quest183">#183 Fachbegriffe zum Aufbau einer Programmiersprache</a></li>
-            <li><a href="#quest184">#184 Fachbegriffe Interpreter und Compiler</a></li>
-            <li><a href="#quest185">#185 Fachbegriff Debugger</a></li>
-            <li><a href="#quest186">#186 Fachbegriff Assembler</a></li>
-            <li><a href="#quest187">#187 Fachbegriff Rekursive Funktionen</a></li>
-            <li><a href="#quest188">#188 Kenntnisse über ASCII-Tabellen</a></li>
-            <li><a href="#quest189">#189 Kenntnisse über Variablenarten, Datentypen und Definitionen</a></li>
-            <li><a href="#quest190">#190 Unterschied Variable und Konstante</a></li>
-            <li><a href="#quest191">#191 Gültigkeitsbereiche (Lebensdauer) von Variablen</a></li>
-            <li><a href="#quest192">#192 Fachbegriff Schleifen, Beispiele für Schleifen</a></li>
-            <li><a href="#quest193">#193 Fachbegriffe "kopfgesteuert" bzw. "fußgesteuert" im Zusammenhang mit
-                Schleifen</a></li>
-            <li><a href="#quest194">#194 Kenntnisse über Verzweigungen und Fall unterscheidungen</a></li>
-            <li><a href="#quest195">#195 Kenntnis der objektorientierten Programmierung</a></li>
-          </ul>
-          <li><a href="lapcard16">#16 Datenbanken, Datenmodelle und Datenstruktur</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest196">#196 Fachbegriff Datenbanksysteme</a></li>
-            <li><a href="#quest197">#197 Fachbegriffe zu Datenbankabfragen</a></li>
-            <li><a href="#quest198">#198 Fachbegriff Datenbank management system (DBMS)</a></li>
-            <li><a href="#quest199">#199 Fachbegriff Content Management System (CMS)</a></li>
-            <li><a href="#quest200">#200 Fachbegriff Integrität im Zusammenhang mit Datenbanken</a></li>
-            <li><a href="#quest201">#201 Fachbegriff Redundanz im Zusammenhang mit Datenbanken</a></li>
-            <li><a href="#quest202">#202 Vorgangsweise bei der Datenmodellierung (RDB)</a></li>
-            <li><a href="#quest203">#203 Kenntnisse über grundlegende Datenbank operationen</a></li>
-            <li><a href="#quest204">#204 Kenntnisse über die ersten drei Normalformen im Zusammenhang mit
-                Datenbanken</a></li>
-            <li><a href="#quest205">#205 Fachbegriffe Primärschlüssel, Fremdschlüssel, Relationen</a></li>
-            <li><a href="#quest206">#206 Kenntnis über Vor- und Nachteile bei Verwendung eines Indexes</a></li>
-            <li><a href="#quest207">#207 Vor- und Nachteile von Freeware Datenbanken</a></li>
-            <li><a href="#quest208">#208 Kenntnisse über Sicherungsmethoden</a></li>
-            <li><a href="#quest209">#209 Fachbegriff Sperrtabelle und Sperrverhalten</a></li>
-            <li><a href="#quest210">#210 Fachbegriff BIS (Betriebliches Informationssystem)</a></li>
-            <li><a href="#quest211">#211 Kenntnisse / Fachbegriff ERP Systeme</a></li>
-            <li><a href="#quest212">#212 Kenntnisse / Fachbegriff BI/BW Systeme</a></li>
-            <li><a href="#quest213">#213 Kenntnisse der Abläufe und Prozessschritte (Zugriff)</a></li>
-            <li><a href="#quest214">#214 Kenntnisse der Abläufe und Prozessschritte (Daten)</a></li>
-          </ul>
-          <li><a href="#lapcard17">#17 Systementwicklung / Testkonzepte</a></li>
-          <ul class="secondlist-element">
-            <li><a href="#quest215">#215 Fachbegriff Programmspezifikation</a></li>
-            <li><a href="#quest216">#216 Fachbegriff Datenmodell</a></li>
-            <li><a href="#quest217">#217 Kenntnisse über wichtige Datentypen und Datenstrukturen</a></li>
-            <li><a href="#quest218">#218 Kenntnisse über Funktionen</a></li>
-            <li><a href="#quest219">#219 Unterschiede zwischen Call-By-Value und Call-By-Reference</a></li>
-            <li><a href="#quest220">#220 Kenntnisse über Klassen</a></li>
-            <li><a href="#quest221">#221 Kenntnisse über das Prinzip der Vererbung</a></li>
-            <li><a href="#quest222">#222 Fachbegriff Standardbibliothek</a></li>
-            <li><a href="#quest223">#223 Kenntnisse über Testkonzepte</a></li>
-            <li><a href="#quest224">#224 Auswertung eines Softwaretests</a></li>
-            <li><a href="#quest225">#225 Kriterien für den Test von Datenbankfeldern unterschiedlicher Typen</a></li>
-            <li><a href="#quest226">#225 Unterschiede zwischen einem reproduzierbaren / nicht-reproduzierbaren
-                Fehler</a></li>
-            <li><a href="#quest227">#227 Kenntnisse über Möglichkeiten zur Automatisierung von Tests</a></li>
-          </ul>
+        <li><a href="#lapcard02">#02 Betriebssysteme und Software</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest008">#008 Fachbegriff Betriebssystem</a></li>
+          <li><a href="#quest009">#009 Kenntnis der am Markt führend verbreiteten Betriebssysteme</a></li>
+          <li><a href="#quest010">#010 Kenntnis über Desktop-Betriebssysteme</a></li>
+          <li><a href="#quest011">#011 Fachbegriff Firmware</a></li>
+          <li><a href="#quest012">#012 Fachbegriffe Systemprogramm, Anwendungsprogramm</a></li>
+          <li><a href="#quest013">#013 Fachbegriff Multitasking-Betriebssystem</a></li>
+          <li><a href="#quest014">#014 Fachbegriffe Single-User-System, Multi-User-System</a></li>
+          <li><a href="#quest015">#015 Kenntnis über die Powershell (inkl. einfacher Befehle)</a></li>
+          <li><a href="#quest016">#016 Kenntnisse über grafische Oberflächen unter Linux</a></li>
+          <li><a href="#quest017">#017 Fachbegriff Dateisystem</a></li>
         </ul>
-      </div>
-    
+        <li><a href="#lapcard03">#03 Betreuung von mobiler Hardware</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest018">#018 Technische Merkmale von Smartphones</a></li>
+          <li><a href="#quest019">#019 Technische Merkmale von Tablets</a></li>
+          <li><a href="#quest020">#020 Kenntnisse über Android</a></li>
+          <li><a href="#quest021">#021 Kenntnisse über IOS</a></li>
+          <li><a href="#quest022">#022 Fachbegriff QR-Code</a></li>
+          <li><a href="#quest023">#023 Vor- und Nachteile von geschlossenen Systemen mit Betriebssystem und
+              App-Store</a></li>
+        </ul>
+        <li><a href="#lapcard04">#04 Technische Dokumentationen / Projektarbeit / Schulungen</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest024">#024 Aufgabe und Strukturierung von Testläufen</a></li>
+          <li><a href="#quest025">#025 Protokollieren technischer Arbeiten</a></li>
+          <li><a href="#quest026">#026 Inhalt einer technischen Dokumentation / technisches Protokoll (z.B. FAQ,
+              …)</a></li>
+          <li><a href="#quest027">#027 Aufbereitung einer technischen Dokumentation / technisches Protokoll</a></li>
+          <li><a href="#quest028">#028 Kenntnis über Abläufe und Prozess schritte zum Roll-out von Applikationen</a>
+          </li>
+          <li><a href="#quest029">#029 Gestaltung und Vorbereitung von Präsentationen</a></li>
+        </ul>
+        <li><a href="#lapcard05">#05 Gesetzliche Bestimmungen</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest030">#030 Kenntnis über DSGVO</a></li>
+          <li><a href="#quest031">#031 Fachbegriff "Datenminimierung" im Zusammenhang der DSGVO</a></li>
+          <li><a href="#quest032">#032 Fachbegriffe "betroffene Personen", Verantwortlicher, Auftragsverarbeiter</a>
+          </li>
+          <li><a href="#quest033">#033 Kenntnis über Rechte von "betroffene Personen" lt. DSGVO</a></li>
+          <li><a href="#quest034">#034 Fachbegriff "personenbezogene und sensible Daten" lt. DSGVO</a></li>
+          <li><a href="#quest035">#035 Bedeutung von Kopplungsverbot beim DSGVO</a></li>
+          <li><a href="#quest036">#036 Datenschutz beauftragter lt. DSGVO und dessen Funktion</a></li>
+          <li><a href="#quest037">#037 Pflichten für Unternehmen bei bekannt gewordenen Datendiebstahl lt. DSGVO</a>
+          </li>
+          <li><a href="#quest038">#038 Kenntnisse über Grundbegriffe und Gültigkeitsbereich des Urheberrechtes</a>
+          </li>
+          <li><a href="#quest039">#039 Kenntnis gesetzlicher Gewährleistungs- und Garantie- Bestimmungen und deren
+              unterschiedlicher Anwendung bei Hardware- und Softwareproblemen</a></li>
+          <li><a href="#quest040">#040 Kenntnisse über umweltgerechte Entsorgung von Elektronikschrott, Toner, Akkus
+              oder Batterien</a></li>
+          <li><a href="#quest041">#041 Kenntnisse über das E-Commerce-Gesetz (ECG)</a></li>
+          <li><a href="#quest042">#042 Kenntnisse über das Telekom-Gesetz (TKG)</a></li>
+          <li><a href="#quest043">#043 Kenntnisse über Pflichtangaben eines Homepage-Betreibers (Impressum)</a></li>
+          <li><a href="#quest044">#044 Kenntnisse über Pflichtangaben beim E-Mail-Verkehr von Unternehmen</a></li>
+          <li><a href="#quest045">#045 Kenntnisse über die gesetzliche Einhaltung von Bildschirmpausen</a></li>
+        </ul>
+        <li><a href="#lapcard06">#06 Netzwerkdienste</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest046">#046 Fachbegriffe Domain, Sub-Domain und Top-Level-Domain</a></li>
+          <li><a href="#quest047">#047 Kenntnis der Web-Protokolle HTTP und HTTPS</a></li>
+          <li><a href="#quest048">#048 Funktionsprinzip eines Mail-Servers</a></li>
+          <li><a href="#quest049">#049 Kenntnis des Mail-Protokolls POP3/POP3S</a></li>
+          <li><a href="#quest050">#050 Kenntnis des Mail-Protokolls IMAP/IMAPS</a></li>
+          <li><a href="#quest051">#051 Kenntnis des Mail-Protokolls SMTP/SMTPS</a></li>
+          <li><a href="#quest052">#052 Kenntnisse über FTP/FTPS</a></li>
+          <li><a href="#quest053">#053 Kenntnisse über SSL</a></li>
+          <li><a href="#quest054">#054 Fachbegriff Cloud-Computing</a></li>
+          <li><a href="#quest055">#055 Kenntnisse über Private / Public / Hybrid Cloud</a></li>
+          <li><a href="#quest056">#056 Fachbegriffe IaaS, PaaS, SaaS</a></li>
+          <li><a href="#quest057">#057 Beispiele für marktbekannte Cloud-Dienste</a></li>
+          <li><a href="#quest058">#058 Kriterien und Voraussetzungen für den Einsatz von Cloud-Diensten</a></li>
+        </ul>
+        <li><a href="#lapcard07">#07 IT-Security</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest059">#059 Kenntnisse über Gefahren von Viren, Würmern, Trojanern, Spyware, Hackern und
+              Phishing</a></li>
+          <li><a href="#quest060">#060 Fachbegriff Zero-Day-Exploit</a></li>
+          <li><a href="#quest061">#061 Kenntnisse über Einschränkungs möglichkeiten bei Benutzerkonten</a></li>
+          <li><a href="#quest062">#062 Funktion einer Software-Firewall</a></li>
+          <li><a href="#quest063">#063 Kenntnisse über Möglichkeiten Client-PCs vor Missbrauch zu schützen</a></li>
+          <li><a href="#quest064">#064 Kenntnisse über sichere Planung von Backups</a></li>
+          <li><a href="#quest065">#065 Kenntnisse über verschiedene Backup-Prinzipien</a></li>
+          <li><a href="#quest066">#066 Kenntnisse über Backup-Medien und deren richtiger Lagerung</a></li>
+        </ul>
+        <li><a href="#lapcard08">#08 Informatik und Gesellschaft</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest067">#067 Fachbegriff Big-Data</a></li>
+          <li><a href="#quest068">#068 Fachbegriff Web 2.0</a></li>
+          <li><a href="#quest069">#069 Fachbegriff Industrie 4.0</a></li>
+          <li><a href="#quest070">#070 Fachbegriff IoT</a></li>
+          <li><a href="#quest071">#071 Kenntnisse über Vor- und Nachteile bei Nutzung von Sprachassistenten</a></li>
+          <li><a href="#quest072">#072 Kenntnisse über e-Government, digitale Signatur und Handy-Signatur</a></li>
+          <li><a href="#quest073">#073 Schutzmöglichkeiten vor Cookie-Tracking und Cookieless-Tracking</a></li>
+          <li><a href="#quest074">#074 Kenntnisse über die Gefahr von Identitätsdiebstahl</a></li>
+          <li><a href="#quest075">#075 Fachbegriff Netzneutralität</a></li>
+          <li><a href="#quest076">#076 Kenntnisse über Vor- und Nachteile bei Nutzung von biometrischen Daten</a></li>
+          <li><a href="#quest077">#077 Inhalte von Unternehmens richtlinien für Nutzung von sozialen Netzwerken</a>
+          </li>
+        </ul>
+        <li><a href="lapcard09">#09 Ergonomische Gestaltung eines Arbeitsplatzes</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest078">#078 Kenntnisse über die ergonomische Einrichtung eines Bildschirm
+              arbeitsplatzes</a></li>
+          <li><a href="#quest079">#079 Kenntnisse über den optimalen Aufstellungsort von Bildschirmen
+              (Lichteinfall)</a></li>
+          <li><a href="#quest080">#080 Kenntnisse der gesetzlichen Bestimmungen von Pausen bei Bildschirmarbeit</a>
+          </li>
+          <li><a href="#quest081">#081 Kenntnisse über die ideale Höhe von Tisch/Tastatur, Bildschirmoberkante und
+              Bildschirmabstand zum Benutzer</a></li>
+          <li><a href="#quest082">#082 Kenntnisse über Schutzmaßnahmen zur Vorbeugung körperlicher Schäden bei
+              sitzender Tätigkeit</a></li>
+          <li><a href="#quest083">#083 Kenntnisse über körperliche Entspannungsübungen bei sitzender Tätigkeit</a>
+          </li>
+        </ul>
+        <li><a href="#lapcard10">#10 Fachberatung, Planung</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest084">#084 Führen von fachspezifischen Verkaufsgesprächen, Produktberatung, Kompetenz,
+              technische Zusammenhänge beratend erklären zu können</a></li>
+          <li><a href="#quest085">#085 Beratung und Erstellen kundenorientierter Softwarelösungen</a></li>
+          <li><a href="#quest086">#086 Kenntnisse über richtigen Umgang bei Reklamationen</a></li>
+          <li><a href="#quest087">#087 Richtiger Kundenumgang bei folgenreichen technischen Problemen</a></li>
+        </ul>
+        <li><a href="#lapcard11">#11 Informatik</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest088">#088 Fachbegriff Informatik</a></li>
+          <li><a href="#quest089">#089 Typen von Webseiten</a></li>
+          <li><a href="#quest090">#090 Fachbegriffe Weblog, Webshop, Web-Plattform</a></li>
+          <li><a href="#quest091">#091 Auszeichnungs sprachen HTML, XML -> Fachbegriff und Einsatzgebiet</a></li>
+          <li><a href="#quest092">#092 Kenntnisse über das HTML5-Grundgerüst mit den wichtigsten Bestandteilen</a>
+          </li>
+          <li><a href="#quest093">#093 Fachbegriff Meta-Element/Metadaten</a></li>
+          <li><a href="#quest094">#094 Fachbegriff SEO und Maßnahmen</a></li>
+          <li><a href="#quest095">#095 Fachbegriff Cascading StyleSheets und deren Einsatz</a></li>
+          <li><a href="#quest096">#096 Scripting</a></li>
+          <li><a href="#quest097">#097 Software zum Erstellen und Betrachten von Webseiten</a></li>
+          <li><a href="#quest098">#098 Fachbegriff CMS</a></li>
+          <li><a href="#quest099">#099 Unterschied LIFO/FIFO-Prinzip</a></li>
+          <li><a href="#quest100">#100 Fachbegriffe Stack und Queue</a></li>
+          <li><a href="#quest101">#101 Fachbegriff Userinterface</a></li>
+          <li><a href="#quest102">#102 Fachbegriff Zeichencodierung</a></li>
+          <li><a href="#quest103">#103 Standards ANSI, ISO, IEEE</a></li>
+          <li><a href="#quest104">#104 Fachbegriff Frame</a></li>
+          <li><a href="#quest105">#105 Fachbegriff Webservices</a></li>
+          <li><a href="#quest106">#106 Kenntnisse über Standards (SOAP, WSDL, …)</a></li>
+          <li><a href="#quest107">#107 Fachbegriff Rest API</a></li>
+          <li><a href="#quest108">#108 Fachbegriff JSON</a></li>
+          <li><a href="#quest109">#109 Fachbegriff Agile Softwareentwicklung</a></li>
+          <li><a href="#quest110">#110 Fachbegriff Reaktive Programmierung</a></li>
+          <li><a href="#quest111">#111 Kenntnisse über Frameworks</a></li>
+          <li><a href="#quest112">#112 Einsatzgebiete Angular JS</a></li>
+          <li><a href="#quest113">#113 Einsatzgebiete Bootstrap</a></li>
+          <li><a href="#quest114">#114 Einsatzgebiet jQuery</a></li>
+          <li><a href="#quest115">#115 Kenntnisse über den Zugriff PHP auf mySQL-Datenbank</a></li>
+          <li><a href="#quest116">#116 Fachbegriff Multitasking</a></li>
+          <li><a href="#quest117">#117 Kenntnisse über mobile Webseiten / Optimierung für Smartphones</a></li>
+          <li><a href="#quest118">#118 Fachbegriff Responsive Webdesign, Umsetzung</a></li>
+          <li><a href="#quest119">#119 Kenntnisse über Konzept Mobile First</a></li>
+          <li><a href="#quest120">#120 Kenntnisse über aktuelle Programmiersprachen</a></li>
+          <li><a href="#quest121">#121 Kenntnisse über Programmiersprachen für mobile Anwendungen / Internet</a></li>
+          <li><a href="#quest122">#122 Kenntnisse über die Anwendung von JAVA-Technologien im Web</a></li>
+          <li><a href="#quest123">#123 Grundkenntnisse über die Anwendung der .NET-Technologien im Web (ASP.NET)</a>
+          </li>
+          <li><a href="#quest124">#124 Fachbegriff Metadaten</a></li>
+          <li><a href="#quest125">#125 Prinzipien der Software entwicklung: KISS, DRY</a></li>
+          <li><a href="#quest126">#126 Kenntnisse über Coding-Standards/Code-Konventionen</a></li>
+          <li><a href="#quest127">#127 Fachbegriff Cross Plattform Entwicklung</a></li>
+          <li><a href="#quest128">#128 Fachbegriff Corporate Identity (CI)</a></li>
+          <li><a href="#quest129">#129 Fachbegriff Corporate Design (CD)</a></li>
+          <li><a href="#quest130">#130 CI/CD Vorgaben bei der Applikations entwicklung</a></li>
+        </ul>
+        <li><a href="#lapcard12">#12 Projektmanagement</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest131">#131 Fachbegriff Projektmanagement</a></li>
+          <li><a href="#quest132">#132 Definition von Projekten</a></li>
+          <li><a href="#quest133">#133 Fachbegriff Pflichtenheft und notwendiger Inhalt</a></li>
+          <li><a href="#quest134">#134 Fachbegriff Lastenheft und notwendiger Inhalt</a></li>
+          <li><a href="#quest135">#135 Kenntnisse über Spannungsfelder in einem Projekt</a></li>
+          <li><a href="#quest136">#136 Kenntnisse über den Fachbegriff Primäres Projektziel</a></li>
+          <li><a href="#quest137">#137 Kenntnisse über Vor- und Nachteile einer Projektorganisation</a></li>
+          <li><a href="#quest138">#138 Ziel einer Projekt dokumentation</a></li>
+          <li><a href="#quest139">#139 Fachbegriff Struktogramm</a></li>
+          <li><a href="#quest140">#140 Fachbegriff Ablaufdiagramm (Flowchart)</a></li>
+          <li><a href="#quest141">#141 Kenntnisse über wesentliche Schritte einer Projektplanung</a></li>
+          <li><a href="#quest142">#142 Kenntnisse über Eigenschaften eines Projektleiters</a></li>
+          <li><a href="#quest143">#143 Aufgaben eines Projektleiters</a></li>
+          <li><a href="#quest144">#144 Kenntnisse über Dokumentationen eines Projektes</a></li>
+          <li><a href="#quest145">#145 Fachbegriff Projektauftrag</a></li>
+          <li><a href="#quest146">#146 Fachbegriff Projektstrukturplan</a></li>
+          <li><a href="#quest147">#147 Fachbegriff Arbeitspaket</a></li>
+          <li><a href="#quest148">#148 Fachbegriff Meilenstein</a></li>
+          <li><a href="#quest149">#149 Unterschiede internes/externes Projekt</a></li>
+          <li><a href="#quest150">#150 Kenntnis Projekt kostenplanung</a></li>
+        </ul>
+        <li><a href="#lapcard13">#13 Projektmethoden, Tools</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest151">#151 Kenntnisse über Software prozess modelle</a></li>
+          <li><a href="#quest152">#152 Kenntnisse über den Aufbau des Wasserfallmodells</a></li>
+          <li><a href="#quest153">#153 Kenntnisse über Agiles Projektmanagement / Methoden</a></li>
+          <li><a href="#quest154">#154 Fachbegriff DevOps</a></li>
+          <li><a href="#quest155">#155 Fachbegriff Scrummaster</a></li>
+          <li><a href="#quest156">#156 Fachbegriff Productowner</a></li>
+          <li><a href="#quest157">#157 Fachbegriff Backlog</a></li>
+          <li><a href="#quest158">#158 Fachbegriff Sprint</a></li>
+          <li><a href="#quest159">#159 Fachbegriff Stakeholder</a></li>
+          <li><a href="#quest160">#160 Fachbegriff Daily Scrum/Daily Standup</a></li>
+          <li><a href="#quest161">#161 Fachbegriff User Story/Story Board</a></li>
+          <li><a href="#quest162">#162 Probleme, die beim Wasserfallmodell auftreten können</a></li>
+          <li><a href="#quest163">#163 Kenntnisse über den Aufbau des V-Modells</a></li>
+          <li><a href="#quest164">#164 Kenntnisse über Vor- und Nachteile des V-Modells</a></li>
+          <li><a href="#quest165">#165 Fachbegriff Softwareentwurf</a></li>
+          <li><a href="#quest166">#166 Fachbegriff Prototyp</a></li>
+          <li><a href="#quest167">#167 Fachbegriff Soll-Ist-Analyse</a></li>
+          <li><a href="#quest168">#168 Fachbegriff Versionsverwaltung</a></li>
+        </ul>
+        <li><a href="#lapcard14">#14 Qualitätssicherung</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest169">#169 Kenntnisse über den Zweck von Code-Reviews</a></li>
+          <li><a href="#quest170">#170 Fachbegriff Schreibtischtest</a></li>
+          <li><a href="#quest171">#171 Kenntnisse über Black-Box-Test/White-Box-Test, wesentliche Unterschiede</a>
+          </li>
+          <li><a href="#quest172">#172 Kenntnisse über wichtige Qualitätsmerkmale der Software funktionalität</a></li>
+          <li><a href="#quest173">#173 Kenntnisse über Changemanagement</a></li>
+          <li><a href="#quest174">#174 Fachbegriff Versionierung und deren Nutzen</a></li>
+          <li><a href="#quest175">#175 Kenntnisse über Problemmanagement</a></li>
+        </ul>
+        <li><a href="lapcard15">#15 Grundkenntnisse des Programmierens</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest176">#176 Stadien der Softwareentwicklung</a></li>
+          <li><a href="#quest177">#177 Fachbegriffe Prozedurale Programmierung, Objektorientierte Programmierung,
+              Unterschiede</a></li>
+          <li><a href="#quest178">#178 Fachbegriff Algorithmus</a></li>
+          <li><a href="#quest179">#179 Fachbegriff Pseudocode</a></li>
+          <li><a href="#quest180">#180 Kenntnisse über Sortieralgorithmen</a></li>
+          <li><a href="#quest181">#181 Kenntnisse über Suchalgorithmen</a></li>
+          <li><a href="#quest182">#182 Ablauf der Programmentwicklung</a></li>
+          <li><a href="#quest183">#183 Fachbegriffe zum Aufbau einer Programmiersprache</a></li>
+          <li><a href="#quest184">#184 Fachbegriffe Interpreter und Compiler</a></li>
+          <li><a href="#quest185">#185 Fachbegriff Debugger</a></li>
+          <li><a href="#quest186">#186 Fachbegriff Assembler</a></li>
+          <li><a href="#quest187">#187 Fachbegriff Rekursive Funktionen</a></li>
+          <li><a href="#quest188">#188 Kenntnisse über ASCII-Tabellen</a></li>
+          <li><a href="#quest189">#189 Kenntnisse über Variablenarten, Datentypen und Definitionen</a></li>
+          <li><a href="#quest190">#190 Unterschied Variable und Konstante</a></li>
+          <li><a href="#quest191">#191 Gültigkeitsbereiche (Lebensdauer) von Variablen</a></li>
+          <li><a href="#quest192">#192 Fachbegriff Schleifen, Beispiele für Schleifen</a></li>
+          <li><a href="#quest193">#193 Fachbegriffe "kopfgesteuert" bzw. "fußgesteuert" im Zusammenhang mit
+              Schleifen</a></li>
+          <li><a href="#quest194">#194 Kenntnisse über Verzweigungen und Fall unterscheidungen</a></li>
+          <li><a href="#quest195">#195 Kenntnis der objektorientierten Programmierung</a></li>
+        </ul>
+        <li><a href="lapcard16">#16 Datenbanken, Datenmodelle und Datenstruktur</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest196">#196 Fachbegriff Datenbanksysteme</a></li>
+          <li><a href="#quest197">#197 Fachbegriffe zu Datenbankabfragen</a></li>
+          <li><a href="#quest198">#198 Fachbegriff Datenbank management system (DBMS)</a></li>
+          <li><a href="#quest199">#199 Fachbegriff Content Management System (CMS)</a></li>
+          <li><a href="#quest200">#200 Fachbegriff Integrität im Zusammenhang mit Datenbanken</a></li>
+          <li><a href="#quest201">#201 Fachbegriff Redundanz im Zusammenhang mit Datenbanken</a></li>
+          <li><a href="#quest202">#202 Vorgangsweise bei der Datenmodellierung (RDB)</a></li>
+          <li><a href="#quest203">#203 Kenntnisse über grundlegende Datenbank operationen</a></li>
+          <li><a href="#quest204">#204 Kenntnisse über die ersten drei Normalformen im Zusammenhang mit
+              Datenbanken</a></li>
+          <li><a href="#quest205">#205 Fachbegriffe Primärschlüssel, Fremdschlüssel, Relationen</a></li>
+          <li><a href="#quest206">#206 Kenntnis über Vor- und Nachteile bei Verwendung eines Indexes</a></li>
+          <li><a href="#quest207">#207 Vor- und Nachteile von Freeware Datenbanken</a></li>
+          <li><a href="#quest208">#208 Kenntnisse über Sicherungsmethoden</a></li>
+          <li><a href="#quest209">#209 Fachbegriff Sperrtabelle und Sperrverhalten</a></li>
+          <li><a href="#quest210">#210 Fachbegriff BIS (Betriebliches Informationssystem)</a></li>
+          <li><a href="#quest211">#211 Kenntnisse / Fachbegriff ERP Systeme</a></li>
+          <li><a href="#quest212">#212 Kenntnisse / Fachbegriff BI/BW Systeme</a></li>
+          <li><a href="#quest213">#213 Kenntnisse der Abläufe und Prozessschritte (Zugriff)</a></li>
+          <li><a href="#quest214">#214 Kenntnisse der Abläufe und Prozessschritte (Daten)</a></li>
+        </ul>
+        <li><a href="#lapcard17">#17 Systementwicklung / Testkonzepte</a></li>
+        <ul class="secondlist-element">
+          <li><a href="#quest215">#215 Fachbegriff Programmspezifikation</a></li>
+          <li><a href="#quest216">#216 Fachbegriff Datenmodell</a></li>
+          <li><a href="#quest217">#217 Kenntnisse über wichtige Datentypen und Datenstrukturen</a></li>
+          <li><a href="#quest218">#218 Kenntnisse über Funktionen</a></li>
+          <li><a href="#quest219">#219 Unterschiede zwischen Call-By-Value und Call-By-Reference</a></li>
+          <li><a href="#quest220">#220 Kenntnisse über Klassen</a></li>
+          <li><a href="#quest221">#221 Kenntnisse über das Prinzip der Vererbung</a></li>
+          <li><a href="#quest222">#222 Fachbegriff Standardbibliothek</a></li>
+          <li><a href="#quest223">#223 Kenntnisse über Testkonzepte</a></li>
+          <li><a href="#quest224">#224 Auswertung eines Softwaretests</a></li>
+          <li><a href="#quest225">#225 Kriterien für den Test von Datenbankfeldern unterschiedlicher Typen</a></li>
+          <li><a href="#quest226">#225 Unterschiede zwischen einem reproduzierbaren / nicht-reproduzierbaren
+              Fehler</a></li>
+          <li><a href="#quest227">#227 Kenntnisse über Möglichkeiten zur Automatisierung von Tests</a></li>
+        </ul>
+      </ul>
+    </div>
+
 
   </header>
 
   <main>
-  
+
     <h1>Applications Developer</h1>
     <div id="lerncontainer">
       <button id="holeinefrage" onclick="holDirEineFrage()" class="primarybtn">Hol dir eine Frage</button>
-  
+
       <div id="zubeantwortendefrage">
-  
+
       </div>
       <button id="zeigeantwort" onclick="zeigeAntwort()" style="display: none;" class="primarybtn">Zeige die
         Antwort</button>
-  
+
       <div id="antwortderfrage">
-  
+
       </div>
-    </div>  
+    </div>
 
     <h2>Bundesgesetzblatt LAP Applikationsentwicklung - Coding</h2>
     <div class="maincontain" id="bundesgesetzblatt">
@@ -1188,8 +1214,7 @@
               Get-Process</span> <br>
             <br>
             - <span style="font-family: 'Consolas';">Get-Command</span>: Listet alle cmdlets, Funktionen, Skripte und
-            Aliase, die in der PowerShell-Sitzung verfügbar sind. Beispiel: <span
-              style="font-family: 'Consolas';">Get-Command *process*</span> <br>
+            Aliase, die in der PowerShell-Sitzung verfügbar sind. Beispiel: <span style="font-family: 'Consolas';">Get-Command *process*</span> <br>
             <br>
             - <span style="font-family: 'Consolas';">Get-Process</span>: Zeigt Informationen zu den aktuell laufenden
             Prozessen auf dem System an. Beispiel: <span style="font-family: 'Consolas';">Get-Process</span> <br>
@@ -1198,12 +1223,9 @@
             auf dem lokalen Computer an. Beispiel: <span style="font-family: 'Consolas';">Get-Service</span> <br>
             <br>
             - <span style="font-family: 'Consolas';">Set-ExecutionPolicy</span>: Ändert die Ausführungsrichtlinie für
-            PowerShell-Skripte (wichtig für das Ausführen von Skripten). Beispiel: <span
-              style="font-family: 'Consolas';">Set-ExecutionPolicy RemoteSigned</span> <br>
+            PowerShell-Skripte (wichtig für das Ausführen von Skripten). Beispiel: <span style="font-family: 'Consolas';">Set-ExecutionPolicy RemoteSigned</span> <br>
             <br>
-            - <span style="font-family: 'Consolas';">Start-Service</span> und <span
-              style="font-family: 'Consolas';">Stop-Service</span>: Startet oder stoppt einen Dienst. Beispiel: <span
-              style="font-family: 'Consolas';">Start-Service -Name "wuauserv"</span> <br>
+            - <span style="font-family: 'Consolas';">Start-Service</span> und <span style="font-family: 'Consolas';">Stop-Service</span>: Startet oder stoppt einen Dienst. Beispiel: <span style="font-family: 'Consolas';">Start-Service -Name "wuauserv"</span> <br>
             <br>
             - <span style="font-family: 'Consolas';">New-Item</span>: Erstellt eine neue Datei oder ein Verzeichnis.
             Beispiel: <span style="font-family: 'Consolas';">New-Item -Path 'C:\example.txt' -ItemType File</span> <br>
@@ -1215,8 +1237,7 @@
             - <span style="font-family: 'Consolas';">Remove-Item</span>: Löscht Dateien oder Verzeichnisse. Beispiel:
             <span style="font-family: 'Consolas';">Remove-Item -Path 'C:\example.txt'</span> <br>
             <br>
-            - <span style="font-family: 'Consolas';">Set-Location</span> und <span
-              style="font-family: 'Consolas';">Get-Location</span>: Wechselt das aktuelle Verzeichnis bzw. zeigt es an.
+            - <span style="font-family: 'Consolas';">Set-Location</span> und <span style="font-family: 'Consolas';">Get-Location</span>: Wechselt das aktuelle Verzeichnis bzw. zeigt es an.
             Beispiel: <span style="font-family: 'Consolas';">Set-Location -Path 'C:\Windows'</span> <br>
           </p>
         </div>
@@ -3445,8 +3466,7 @@
             Seite, der oft den Titel und die Navigation enthält. <br>
             <span style="font-family: 'Consolas';">&lt;nav&gt;</span>: Die Navigationsleiste oder
             das Menü. <br>
-            <span style="font-family: 'Consolas';">&lt;ul&gt;</span> und <span
-              style="font-family: 'Consolas';">&lt;li&gt;</span>: Ungeordnete Liste und
+            <span style="font-family: 'Consolas';">&lt;ul&gt;</span> und <span style="font-family: 'Consolas';">&lt;li&gt;</span>: Ungeordnete Liste und
             Listenelemente für die Navigation. <br>
             <span style="font-family: 'Consolas';">&lt;main&gt;</span>: Der Hauptinhalt der
             Webseite, der in der Regel die Artikel und den Haupttext enthält. <br>
@@ -6661,25 +6681,17 @@
             wird. <br>
             - Mit einer <span style="font-family: 'Consolas';">for</span>-Schleife wird durch jedes Element des Arrays
             iteriert. <br>
-            - In jedem Schritt der Iteration wird der Wert des aktuellen Elements zum Wert von <span
-              style="font-family: 'Consolas';">sum</span> addiert. <br>
-            - Nachdem die Schleife alle Elemente des Arrays durchlaufen hat, gibt die Funktion den Wert von <span
-              style="font-family: 'Consolas';">sum</span> zurück, der die Gesamtsumme aller Zahlen im Array darstellt.
+            - In jedem Schritt der Iteration wird der Wert des aktuellen Elements zum Wert von <span style="font-family: 'Consolas';">sum</span> addiert. <br>
+            - Nachdem die Schleife alle Elemente des Arrays durchlaufen hat, gibt die Funktion den Wert von <span style="font-family: 'Consolas';">sum</span> zurück, der die Gesamtsumme aller Zahlen im Array darstellt.
             <br>
             <br>
             - Start mit <span style="font-family: 'Consolas';">sum = 0</span> <br>
-            - Iteriere über jedes Element des Arrays und addiere dessen Wert zu <span
-              style="font-family: 'Courier New', Courier, monospace;">sum</span>: <br>
-            -- Nach dem ersten Element (<span style="font-family: 'Consolas';">1</span>): <span
-              style="font-family: 'Consolas';">sum = 1</span> <br>
-            -- Nach dem zweiten Element (<span style="font-family: 'Consolas';">2</span>): <span
-              style="font-family: 'Consolas';">sum = 3</span> <br>
-            -- Nach dem dritten Element (<span style="font-family: 'Consolas';">3</span>): <span
-              style="font-family: 'Consolas';">sum = 6</span> <br>
-            -- Nach dem vierten Element (<span style="font-family: 'Consolas';">4</span>): <span
-              style="font-family: 'Consolas';">sum = 10</span> <br>
-            -- Nach dem fünften Element (<span style="font-family: 'Consolas';">5</span>): <span
-              style="font-family: 'Consolas';">sum = 15</span> <br>
+            - Iteriere über jedes Element des Arrays und addiere dessen Wert zu <span style="font-family: 'Courier New', Courier, monospace;">sum</span>: <br>
+            -- Nach dem ersten Element (<span style="font-family: 'Consolas';">1</span>): <span style="font-family: 'Consolas';">sum = 1</span> <br>
+            -- Nach dem zweiten Element (<span style="font-family: 'Consolas';">2</span>): <span style="font-family: 'Consolas';">sum = 3</span> <br>
+            -- Nach dem dritten Element (<span style="font-family: 'Consolas';">3</span>): <span style="font-family: 'Consolas';">sum = 6</span> <br>
+            -- Nach dem vierten Element (<span style="font-family: 'Consolas';">4</span>): <span style="font-family: 'Consolas';">sum = 10</span> <br>
+            -- Nach dem fünften Element (<span style="font-family: 'Consolas';">5</span>): <span style="font-family: 'Consolas';">sum = 15</span> <br>
             - Die Funktion gibt <span style="font-family: 'Consolas';">15</span> zurück, was die Summe aller Zahlen im
             Array ist. <br>
           </p>
@@ -6936,11 +6948,8 @@
             <b>Schlüsselwörter:</b> sind vordefinierte, reservierte Wörter, die eine spezielle Bedeutung in
             der
             Programmiersprache haben. Sie repräsentieren grundlegende Strukturen und Konzepte der Sprache, wie Schleifen
-            (z.B. <span style="font-family: 'Consolas';">for</span>, <span
-              style="font-family: 'Consolas';">while</span>), Bedingungen (<span
-              style="font-family: 'Consolas';">if</span>, <span style="font-family: 'Consolas';">else</span>) und
-            Datentypen (<span style="font-family: 'Consolas';">int</span>, <span
-              style="font-family: 'Consolas';">char</span>). Schlüsselwörter können nicht als Identifikatoren (z.B.
+            (z.B. <span style="font-family: 'Consolas';">for</span>, <span style="font-family: 'Consolas';">while</span>), Bedingungen (<span style="font-family: 'Consolas';">if</span>, <span style="font-family: 'Consolas';">else</span>) und
+            Datentypen (<span style="font-family: 'Consolas';">int</span>, <span style="font-family: 'Consolas';">char</span>). Schlüsselwörter können nicht als Identifikatoren (z.B.
             Variablennamen) verwendet werden. <br>
             <br>
             <b>Anweisung:</b> ist die kleinste ausführbare Einheit eines Programms, die eine Aktion ausführt.
@@ -7110,8 +7119,7 @@
               2 = 6</span> zurück. <br>
             - <span style="font-family: 'Consolas';">fakultät(4)</span> gibt <span style="font-family: 'Consolas';">4 *
               6 = 24</span> zurück. <br>
-            - <span style="font-family: 'Consolas';">fakultät(5)</span> gibt schließlich <span
-              style="font-family: 'Consolas';">5 * 24 = 120</span> zurück. <br>
+            - <span style="font-family: 'Consolas';">fakultät(5)</span> gibt schließlich <span style="font-family: 'Consolas';">5 * 24 = 120</span> zurück. <br>
             <br>
             Somit ist die Ausgabe <span style="font-family: 'Consolas';">120</span>, da dies das
             Produkt von <span style="font-family: 'Consolas';">5 * 4 * 3 * 2 * 1</span> ist, was
@@ -7189,9 +7197,7 @@
             (nicht-primitive) Datentypen. <br>
             - <b>Primitive Datentypen:</b> Inkludieren Ganzzahlen (<span style="font-family: 'Consolas';">int</span>),
             Gleitkommazahlen (<span style="font-family: 'Consolas';">float</span>,
-            <span style="font-family: 'Consolas';">double</span>), Wahrheitswerte (<span
-              style="font-family: 'Consolas';">boolean</span>) und Zeichen (<span
-              style="font-family: 'Consolas';">char</span>). Sie speichern einfache Werte. <br>
+            <span style="font-family: 'Consolas';">double</span>), Wahrheitswerte (<span style="font-family: 'Consolas';">boolean</span>) und Zeichen (<span style="font-family: 'Consolas';">char</span>). Sie speichern einfache Werte. <br>
             - <b>Nicht-primitive Datentypen:</b> Umfassen Klassen, Schnittstellen, Arrays und andere Strukturen, die
             mehrere Werte und/oder komplexe Daten halten können. <br>
             <br>
@@ -7257,8 +7263,7 @@
             nur in der Funktion zugänglich, in
             der sie
             deklariert wurden. <br>
-            - <b>Block-scoped Variablen</b> (<span style="font-family: 'Consolas';">let</span> oder <span
-              style="font-family: 'Consolas';">const</span> innerhalb eines Blocks) sind nur
+            - <b>Block-scoped Variablen</b> (<span style="font-family: 'Consolas';">let</span> oder <span style="font-family: 'Consolas';">const</span> innerhalb eines Blocks) sind nur
             innerhalb des
             Blocks
             zugänglich, in dem sie deklariert wurden. <br>
@@ -7292,9 +7297,7 @@
             Mit ES6 (ECMAScript 2015) wurden <span style="font-family: 'Consolas';">let</span>
             und <span style="font-family: 'Consolas';">const</span> eingeführt, um Variablen mit
             Block-Scope zu deklarieren.
-            Solche Variablen sind nur innerhalb des Blocks (z. B. innerhalb einer <span
-              style="font-family: 'Consolas';">if</span>-Bedingung oder einer <span
-              style="font-family: 'Consolas';">for</span>-Schleife) zugänglich, in dem sie deklariert wurden. <br>
+            Solche Variablen sind nur innerhalb des Blocks (z. B. innerhalb einer <span style="font-family: 'Consolas';">if</span>-Bedingung oder einer <span style="font-family: 'Consolas';">for</span>-Schleife) zugänglich, in dem sie deklariert wurden. <br>
             <span style="font-family: 'Consolas';">```javascript <br>
               if (true) { <br>
               &nbsp;&nbsp;let blockVar = "Ich bin block-scoped"; <br>
@@ -7393,9 +7396,7 @@
             <b>Kopfgesteuerte Schleife:</b> auch als Pre-Test-Schleife bekannt, überprüft die Bedingung, bevor
             der
             Codeblock innerhalb der Schleife zum ersten Mal ausgeführt wird. Wenn die Bedingung von Anfang an falsch
-            ist, wird der Codeblock innerhalb der Schleife überhaupt nicht ausgeführt. Die <span
-              style="font-family: 'Consolas';">for</span>- und <span
-              style="font-family: 'Consolas';">while</span>-Schleifen in den meisten Programmiersprachen sind Beispiele
+            ist, wird der Codeblock innerhalb der Schleife überhaupt nicht ausgeführt. Die <span style="font-family: 'Consolas';">for</span>- und <span style="font-family: 'Consolas';">while</span>-Schleifen in den meisten Programmiersprachen sind Beispiele
             für kopfgesteuerte Schleifen. <br>
             z.B. Datenverarbeitung: Wenn eine Liste von Datenpunkten verarbeitet werden soll und vor der Verarbeitung
             jeder Datenpunkt überprüft werden muss, ob er bestimmten Kriterien entspricht. Beispielsweise könnte eine
@@ -7414,8 +7415,7 @@
             <br>
             <b>Fußgesteuerte Schleife:</b> auch als Post-Test-Schleife bekannt, führt den Codeblock innerhalb der
             Schleife mindestens einmal aus, bevor die Bedingung zum ersten Mal überprüft wird. Die Schleife wird
-            fortgesetzt, solange die Bedingung erfüllt ist. Die <span
-              style="font-family: 'Courier New', Courier, monospace;">do-while</span>-Schleife in vielen
+            fortgesetzt, solange die Bedingung erfüllt ist. Die <span style="font-family: 'Courier New', Courier, monospace;">do-while</span>-Schleife in vielen
             Programmiersprachen ist ein Beispiel für eine fußgesteuerte Schleife. <br>
             z.B. Nutzereingaben validieren: Wenn zumindest einmal eine Eingabe vom Benutzer verlangt wird und diese
             Eingabe validiert werden muss. Eine do-while-Schleife stellt sicher, dass der Nutzer mindestens einmal zur
@@ -7427,9 +7427,7 @@
               &nbsp;&nbsp;i++; <br>
               } while (i &lt; 5); <br>
               ```</span> <br>
-            Hier wird der Codeblock der Schleife mindestens einmal ausgeführt, bevor die Bedingung <span
-              style="font-family: 'Courier New', Courier, monospace;">i &lt; 5</span> überprüft wird. Selbst wenn <span
-              style="font-family: 'Consolas';">i</span> initial größer oder gleich 5 wäre, würde der Codeblock einmal
+            Hier wird der Codeblock der Schleife mindestens einmal ausgeführt, bevor die Bedingung <span style="font-family: 'Courier New', Courier, monospace;">i &lt; 5</span> überprüft wird. Selbst wenn <span style="font-family: 'Consolas';">i</span> initial größer oder gleich 5 wäre, würde der Codeblock einmal
             ausgeführt. <br>
           </p>
         </div>
@@ -7451,8 +7449,7 @@
             <br>
             <b>Verzweigungen (Conditional Statements):</b> erlauben einem Programm, Entscheidungen zu treffen
             und
-            verschiedene Aktionen auszuführen, je nachdem, ob eine oder mehrere Bedingungen wahr (<span
-              style="font-family: 'Consolas';">true</span>) oder falsch
+            verschiedene Aktionen auszuführen, je nachdem, ob eine oder mehrere Bedingungen wahr (<span style="font-family: 'Consolas';">true</span>) oder falsch
             (<span style="font-family: 'Consolas';">false</span>) sind. <br>
             - <b>if-Anweisung:</b> Die grundlegendste Form der Verzweigung. Führt einen Codeblock aus, wenn
             eine bestimmte
@@ -7567,21 +7564,18 @@
               meinAuto.zeigeDetails(); // Ausgabe: Marke: Tesla, Türen: 4 <br>
               ```</span> <br>
             <br>
-            - <b>Fahrzeug</b> ist eine Basisklasse mit einem Konstruktor, der die <span
-              style="font-family: 'Consolas';">marke</span> des Fahrzeugs
+            - <b>Fahrzeug</b> ist eine Basisklasse mit einem Konstruktor, der die <span style="font-family: 'Consolas';">marke</span> des Fahrzeugs
             initialisiert, und
             einer Methode <span style="font-family: 'Consolas';">hupen</span>. <br>
             - <b>Auto</b> ist eine abgeleitete Klasse, die von <span style="font-family: 'Consolas';">Fahrzeug</span>
             erbt. Es verwendet <span style="font-family: 'Consolas';">super(marke)</span> im
             Konstruktor,
-            um den Konstruktor der Basisklasse aufzurufen und die Marke zu initialisieren. <span
-              style="font-family: 'Consolas';">Auto</span> fügt auch ein neues
+            um den Konstruktor der Basisklasse aufzurufen und die Marke zu initialisieren. <span style="font-family: 'Consolas';">Auto</span> fügt auch ein neues
             Attribut <span style="font-family: 'Consolas';">anzahlTueren</span> hinzu und
             definiert eine eigene Methode <span style="font-family: 'Consolas';">zeigeDetails</span>, um Details über
             das Auto
             anzuzeigen. <br>
-            - Die Instanz <span style="font-family: 'Consolas';">meinAuto</span> der Klasse <span
-              style="font-family: 'Consolas';">Auto</span> demonstriert die Verwendung dieser
+            - Die Instanz <span style="font-family: 'Consolas';">meinAuto</span> der Klasse <span style="font-family: 'Consolas';">Auto</span> demonstriert die Verwendung dieser
             Klasse. Sie kann Methoden der
             Basisklasse (<span style="font-family: 'Consolas';">hupen</span>) und Methoden der abgeleiteten Klasse
             (<span style="font-family: 'Consolas';">zeigeDetails</span>) aufrufen. <br>
@@ -7847,9 +7841,7 @@
             <b>Strategien:</b> <br>
             Ein Unternehmen hat eine <span style="font-family: 'Consolas';">Bestellungen</span>-Tabelle, die alle
             Details jeder Bestellung enthält, einschließlich Kundenname, Adresse und bestellte Produkte. Durch die
-            Normalisierung werden separate Tabellen für <span style="font-family: 'Consolas';">Kunden</span>, <span
-              style="font-family: 'Consolas';">Produkte</span> und eine Verknüpfungstabelle <span
-              style="font-family: 'Consolas';">Bestellte_Produkte</span> erstellt, die nur Referenzen auf die
+            Normalisierung werden separate Tabellen für <span style="font-family: 'Consolas';">Kunden</span>, <span style="font-family: 'Consolas';">Produkte</span> und eine Verknüpfungstabelle <span style="font-family: 'Consolas';">Bestellte_Produkte</span> erstellt, die nur Referenzen auf die
             entsprechenden Einträge in den anderen Tabellen enthält. Dadurch wird Redundanz verringert und die
             Datenintegrität verbessert. <br>
 
@@ -8044,9 +8036,7 @@
             <br>
             <b>Erstellen eines Indexes:</b> In SQL kann ein Index mit der <span style="font-family: 'Consolas';">CREATE
               INDEX</span>-Anweisung erstellt werden. Beispielsweise erstellt der folgende Befehl einen Index namens
-            <span style="font-family: 'Consolas';">index_name</span> für die Spalte <span
-              style="font-family: 'Consolas';">column_name</span> in der Tabelle <span
-              style="font-family: 'Consolas';">table_name</span>: <br>
+            <span style="font-family: 'Consolas';">index_name</span> für die Spalte <span style="font-family: 'Consolas';">column_name</span> in der Tabelle <span style="font-family: 'Consolas';">table_name</span>: <br>
             <span style="font-family: 'Consolas';">```sql <br>
               CREATE INDEX index_name ON table_name (column_name); <br>
               ```</span> <br>
