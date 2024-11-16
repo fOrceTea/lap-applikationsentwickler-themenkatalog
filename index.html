@@ -5,84 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="content">
+  <link rel="shortcut icon" href="./lib/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./lib/stylesheet.css">
   <title>LAP Appdeveloper</title>
-  <script>
-    function getRandomNumber(min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-
-    function holDirEineFrage() {
-      var zufallsNummer = getRandomNumber(1, 227);
-      var frageID = "quest" + zufallsNummer.toString().padStart(3, 0);
-      var ueberschrift = document.getElementById(frageID).querySelector('h3').innerHTML;
-
-      document.getElementById('zubeantwortendefrage').innerHTML = ueberschrift;
-      document.getElementById(frageID).querySelector('p').style.display = 'none';
-      document.getElementById('antwortderfrage').innerHTML = '';
-      document.getElementById('zeigeantwort').style.display = 'block';
-    }
-
-    function zeigeAntwort() {
-      var antwortText = document.getElementById('zubeantwortendefrage').innerHTML;
-      var frageID = "quest" + antwortText.trim().slice(1, 4);
-      var antwortP = document.getElementById(frageID).querySelector('p');
-
-      antwortP.style.display = 'block';
-
-      document.getElementById('antwortderfrage').innerHTML = antwortP.innerHTML;
-    }
-  </script>
+  <script src="./lib/script.js"></script>
 
 </head>
 
 <body>
 
-  <div class="currentTime-styleSheme">
-    <form id="currenttimeform">
-      <input type="text" id="currenttime" name="currenttime">
-    </form>
-
-    <script>
-
-      function currentHeight() {
-        let heighDoc = (document.body.scrollHeight) * 2 / 970;
-        let inputElement = document.getElementById("currenttime");
-        inputElement.value = Math.floor(heighDoc);
-      }
-      currentHeight();
-      setInterval(currentHeight, 2000);
-
-
-    </script>
-  </div>
-
-  <h1>Applications Developer</h1>
-  <div id="lerncontainer">
-    <button id="holeinefrage" onclick="holDirEineFrage()" class="primarybtn">Hol dir eine Frage</button>
-
-    <div id="zubeantwortendefrage">
-
-    </div>
-    <button id="zeigeantwort" onclick="zeigeAntwort()" style="display: none;" class="primarybtn">Zeige die
-      Antwort</button>
-
-    <div id="antwortderfrage">
-
-    </div>
-  </div>
 
   <header>
-    <div class="navbtnbar">
-      <div class="navbtntable">
+    
+      <div id="navbtntable">
 
-        <h2><a href="Themenkatalog_Applikationsentwicklung-Coding_V1_2020.pdf" target="_blank">Themenkatalog WKO</a>
+        <h2><a href="https://www.wko.at/ooe/bildung-lehre/themenkatalog-applikationsentwicklung-coding-v2-2024.pdf" target="_blank">Themen- katalog WKO</a>
         </h2>
 
         <ul id="questlist">
-          <li><a href="#lapcard41">Lehrjahr 1: Grundlagen und Einführung</a></li>
-          <li><a href="#lapcard42">Lehrjahr 2: Vertiefung und Anwendung</a></li>
-          <li><a href="#lapcard43">Lehrjahr 3: Vertiefung und Spezialisierung</a></li>
-          <li><a href="#lapcard44">Lehrjahr 4: Abschluss und Spezialisierung</a></li>
+          <div>
+            <li><a href="#lapcard41">Lehrjahr 1: Grundlagen und Einführung</a></li>
+            <li><a href="#lapcard42">Lehrjahr 2: Vertiefung und Anwendung</a></li>
+            <li><a href="#lapcard43">Lehrjahr 3: Vertiefung und Spezialisierung</a></li>
+            <li><a href="#lapcard44">Lehrjahr 4: Abschluss und Spezialisierung</a></li>
+          </div>
         </ul>
 
         <ul>
@@ -391,11 +337,26 @@
           </ul>
         </ul>
       </div>
-    </div>
+    
 
   </header>
 
   <main>
+  
+    <h1>Applications Developer</h1>
+    <div id="lerncontainer">
+      <button id="holeinefrage" onclick="holDirEineFrage()" class="primarybtn">Hol dir eine Frage</button>
+  
+      <div id="zubeantwortendefrage">
+  
+      </div>
+      <button id="zeigeantwort" onclick="zeigeAntwort()" style="display: none;" class="primarybtn">Zeige die
+        Antwort</button>
+  
+      <div id="antwortderfrage">
+  
+      </div>
+    </div>  
 
     <h2>Bundesgesetzblatt LAP Applikationsentwicklung - Coding</h2>
     <div class="maincontain" id="bundesgesetzblatt">
@@ -8945,8 +8906,6 @@
 
   <footer>
 
-    <div id="footerdistance">
-    </div>
     <div class="topbutton">
       <a href="#top">&#8679;</a>
     </div>
